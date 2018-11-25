@@ -16,8 +16,7 @@
                 </div>
             </div>
         </div>
-        <router-view>
-            <app-project-detail :project="this.projects[1].projecttitle"></app-project-detail>
+        <router-view :project="projects">
         </router-view>
     </section>
 </template>
