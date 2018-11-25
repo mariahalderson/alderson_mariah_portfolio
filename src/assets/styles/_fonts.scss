@@ -1,0 +1,19 @@
+@font-face {
+    font-family: Raleway-Black;
+    src: url('/src/assets/styles/fonts/Raleway-Black.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Raleway-Thin;
+    src: url('/src/assets/styles/fonts/Raleway-Thin.ttf');
+    font-weight: thin;
+}
+
+$titlefont: 'Raleway-Black', 'Arial', sans-serif;
+$titleweight: bold;
+$titlesize: 80px;
+
+$copyfont: 'Raleway-Thin', 'Arial', sans-serif;
+$copyweight: thin;
+$copysize: 20px;

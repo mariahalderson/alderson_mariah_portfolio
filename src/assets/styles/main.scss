@@ -1,0 +1,56 @@
+@import 'fonts';
+@import 'colors';
+@import 'animations';
+@import 'home';
+@import 'portfolio';
+
+
+*{
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body{
+    
+}
+
+section{
+    margin: 0;
+}
+
+.title{
+    font-family: $titlefont;
+    color: $teal;
+    //color: red;
+    font-size: 30px;
+    font-weight: $titleweight;
+    text-align: center;
+}
+
+.subtitle{
+    color: $text;
+    //font-weight: $titleweight;
+    font-size: 18px;
+    font-family: $copyfont
+}
+
+.hide{
+    display: none;
+}
+
+.button{
+    width: 200px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid $yellow;
+    color: $yellow;
+    font-size: 20px;
+    font-family: $copyfont;
+    margin: 0 auto;
+}
+
