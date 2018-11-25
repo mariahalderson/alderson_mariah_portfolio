@@ -10,16 +10,20 @@
                 <div class="hover-info">
                     <p class="title">{{project.projecttitle}}</p>
                     <p class="subtitle">{{project.projecttype}}</p>
-
+                    <router-link :to="'/project/'+project.projectid">
                     <div class="viewbutton button" :id="project.projectid"><p>learn more</p></div>
+                    </router-link>
                 </div>
             </div>
         </div>
-        <h1>component linked!</h1>
+        <router-view>
+            <app-project-detail :project="this.projects[1].projecttitle"></app-project-detail>
+        </router-view>
     </section>
 </template>
 
 <script>
+    import ProjectDetail from './ProjectDetail.vue';
 
     export default {
         data() {
@@ -31,6 +35,9 @@
                     {projectid: "4", projectpath: "images/#", projecttitle: "project4", projecttype: "development",}
                 ]
             }
+        },
+        components:{
+            'app-project-detail': ProjectDetail
         }
     }
     
