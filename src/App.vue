@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <app-header></app-header>
+    <!-- <app-header></app-header>
     <app-hero></app-hero>
-    <app-portfolio></app-portfolio>
+    <app-portfolio></app-portfolio> -->
+    <router-view />
   </div>
 </template>
 
