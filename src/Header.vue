@@ -5,8 +5,8 @@
     </div>
 
     <div id="maintitles">
-      <!-- <p class="title">mariah alderson</p> -->
-      <p class="title"> {{name}}</p>
+      <p class="title">mariah alderson</p>
+      <!-- <p class="title"> {{name}}</p> -->
       <p class="subtitle">front-end developer | UX designer</p>
     </div>
 

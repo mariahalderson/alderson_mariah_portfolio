@@ -10,7 +10,7 @@ import Hero from './Hero.vue';
 Vue.use(VueRouter);
 
 const routes = [
-  {path: '/project/:projectid', component: ProjectDetail, props: true},
+  {path: '/project/:projectid', name: 'project', component: ProjectDetail, props: true},
   {path: '/', component: Header},
   {path: '/portfolio', component: Portfolio}
   //each route is an object in an array with a defined path and component to be loaded
