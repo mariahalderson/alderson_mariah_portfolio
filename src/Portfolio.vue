@@ -11,7 +11,8 @@
                 <div class="hover-info">
                     <p class="title">{{project.projecttitle}}</p>
                     <p class="subtitle">{{project.projecttype}}</p>
-                    <router-link :to="'/project/'+project.projectid">
+                    <!-- <router-link :to="'/project/'+project.projectid"> -->
+                    <router-link :to="{ name: 'project', params: {projectid: project.projectid, projecttitle: project.projecttitle } }">
                     <div class="viewbutton button" :id="project.projectid"><p>learn more</p></div>
                     </router-link>
                 </div>
