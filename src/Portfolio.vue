@@ -1,5 +1,6 @@
 <template>
     <section id="projects">
+        <!-- <app-header></app-header> -->
         <h2 class="hide">Spotlight Projects</h2>
         <p class="title">projects</p>
 
@@ -16,8 +17,8 @@
                 </div>
             </div>
         </div>
-        <router-view :project="projects">
-        </router-view>
+        <!-- <router-view :project="projects">
+        </router-view> -->
     </section>
 </template>
 

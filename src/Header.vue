@@ -11,7 +11,7 @@
         </div>
         
         <!-- <nav id="main navigation"> -->
-        <a class="navitem" id="portfolio" v-on:click="navclick"><div class="arrow downarrow"></div>portfolio</a>
+        <router-link to="/portfolio" class="navitem" id="portfolio" v-on:click="navclick"><div class="arrow downarrow"></div>portfolio</router-link>
         <a class="navitem" id="about"><div class="arrow leftarrow"></div>about</a>
         <a class="navitem" id="resume"><div class="arrow leftarrow"></div> resume</a>
         <!-- </nav> -->
