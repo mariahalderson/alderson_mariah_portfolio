@@ -6,6 +6,7 @@ header{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    //align-items: center;
     height: 70px;
     width: 100vw;
     background-color: $bckgd-color;
@@ -13,6 +14,7 @@ header{
 
     #maintitles{
         width: 100%;
+        display: none;
 
         .title{
             opacity: 0;
@@ -42,7 +44,8 @@ header{
 
     //nav links
     .navitem{
-        font-size: 20px;
+        font-size: 16px;
+        line-height: 70px;
         font-family: 'Raleway-Black';
         color: $text;
         display: flex;
@@ -74,68 +77,39 @@ header{
     }
 
     #portfolio{
-        transition: all 0.4s ease-out;
-        position: fixed;
-        z-index: 99;
-        bottom: 10px;
-        left: 50%;
-        margin-left: -42px;
-
-        color: $bckgd-color;
+        color: $text;
 
         .arrow{
-            transition: all 0.3s ease;
-            border-top-color: $bckgd-color;
+            display: none;
         }
     }
 
-    #about{
-        writing-mode: vertical-rl;
-        text-orientation: mixed;
-        transition: all 0.4s ease-out;
-        position: fixed;
-        color: $bckgd-color;
-        left: 10px;
-        bottom: 50%;
-        margin-bottom: -29px;
+    #about{ 
+        color: $text;
 
         .arrow{
-            transition: all 0.3s ease;
-            border-right-color: $bckgd-color;
+            display:none;
         }
     }
 
     #resume{
-        writing-mode: vertical-rl;
-        text-orientation: mixed;
-        transition: all 0.4s ease-out;
-        position: fixed;
-        transform: rotate(180deg);
-        color: $bckgd-color;
-        right: 10px;
-        bottom: 50%;
-        margin-bottom: -40px;
+        color: $text;
 
-        .arrow{
-            transition: all 0.3s ease;
-            border-right-color: $bckgd-color;
-        }
+       .arrow{
+           display:none;
+       }
     }
 }
 
 //full screen header
 header.fullscreen{
     display: grid;
-    //grid-template-columns: repeat(6, 1fr);
-    //grid-template-rows: repeat(3,1fr);
-    //align-items: center;
     height: 100vh;
-    //padding: 0px 10px;
-    
 
     #maintitles{
         grid-column: 1 / -1;
         grid-row-start: 1;
+        display: block;
 
         .title{
             opacity:1;
@@ -166,16 +140,25 @@ header.fullscreen{
             max-width: 90%;
         }
     }
-    //navigation
-    //nav{
+
         
+    .navitem{
+        font-size: 20px;
+        line-height: 20px;
+    }
 
         #portfolio{
-            color: $text;
-            bottom: 50%;
-            margin-bottom: -150px;
+            //bottom: 50%;
+            margin-bottom: 150px;
+            transition: all 0.4s ease-out;
+            position: fixed;
+            z-index: 99;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -42px;
 
             .arrow{
+                display: block;
                 animation: arrowsd 1s linear infinite;
                 border-top-color: rgba($text, 0.4);
             }
@@ -183,18 +166,33 @@ header.fullscreen{
 
         #about{
            left: 20px;
-           color: $text;
+           writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transition: all 0.4s ease-out;
+            position: fixed;
+            left: 10px;
+            bottom: 50%;
+            margin-bottom: -29px;
             .arrow{
+                display: block;
                 animation: arrowsl 1s linear infinite;
                 border-right-color: rgba($text, 0.4);
             }
         }
 
         #resume{
-            right: 20px;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transition: all 0.4s ease-out;
+            position: fixed;
+            transform: rotate(180deg);
             color: $text;
+            right: 10px;
+            bottom: 50%;
+            margin-bottom: -40px;
 
             .arrow{
+                display:block;
                 animation: arrowsl 1s linear infinite;
                 border-right-color: rgba($text, 0.4);
             }
