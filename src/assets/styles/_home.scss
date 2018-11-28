@@ -106,20 +106,10 @@ header{
     }
 
     #resume{
-        writing-mode: vertical-rl;
-        text-orientation: mixed;
-        transition: all 0.4s ease-out;
-        position: fixed;
-        transform: rotate(180deg);
         color: $bckgd-color;
-        right: 10px;
-        bottom: 50%;
-        margin-bottom: -40px;
-
-        .arrow{
-            transition: all 0.3s ease;
-            border-right-color: $bckgd-color;
-        }
+       .arrow{
+           display:none;
+       }
     }
 }
 
@@ -191,10 +181,23 @@ header.fullscreen{
         }
 
         #resume{
-            right: 20px;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transition: all 0.4s ease-out;
+            position: fixed;
+            transform: rotate(180deg);
             color: $text;
+            right: 10px;
+            bottom: 50%;
+            margin-bottom: -40px;
+    
+            // .arrow{
+            //     transition: all 0.3s ease;
+            //     border-right-color: $bckgd-color;
+            // }
 
             .arrow{
+                display:block;
                 animation: arrowsl 1s linear infinite;
                 border-right-color: rgba($text, 0.4);
             }
