@@ -1,7 +1,7 @@
 <template>
     <section id="project">
         <app-header ref="firstheader"></app-header>
-        <h2 class="hide">Abou the project</h2>
+        <h2 class="hide">About the project</h2>
         <div class="imgcontainer">
             <img src="./assets/images/reactr-screenview.png" alt="">
         </div>
@@ -11,12 +11,12 @@
         <h2>{{project[this.$route.params.projectid-1].projecttype}}</h2> -->
         <!-- <h1>router view</h1> -->
 
-        <p class="subtitle">Company Website Redesign</p>
-        <p class="subtitle">Front-End Developer</p>
+        <p class="subtitle">{{projecttag}}</p>
+        <p class="subtitle">{{projectposition}}</p>
 
         <div id="projectbrief">
             <p class="title" v-on:click="logHeader">about the project</p>
-            <p class="copy"></p>
+            <p class="copy">{{projectdesc}}</p>
         </div>
 
         <div class="imgcontainer">
@@ -25,7 +25,7 @@
 
         <div id="projectbrief">
             <p class="title">the build</p>
-            <p class="copy"></p>
+            <p class="copy">{{projectwork}}</p>
         </div>
 
     </section>
@@ -35,7 +35,7 @@
 <script>
 //update: I figured out props
 export default {
-    props: ['projecttitle'],
+    props: ['projecttitle', 'projecttag', 'projectwork', 'projectdesc', 'projectposition'],
     mounted(){
         this.$refs.firstheader.$refs.homeheader.classList.remove("fullscreen");
     },

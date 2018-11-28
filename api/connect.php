@@ -27,6 +27,17 @@ while($row = mysqli_fetch_assoc($result)){
 }
 }
 
+if(isset($_GET["projects"])) {
+    $projects = $_GET["projects"];
+    $query = "SELECT * FROM tbl_proj";
+    $result = mysqli_query($connect, $query);
+    $rows = array();
+    
+    while($row = mysqli_fetch_assoc($result)){
+        $rows[] = $row;
+    }
+    }
+
 // $query= "SELECT * FROM tbl_images WHERE images_name = 'logo'";
 // $result = mysqli_query($connect, $query);
 // $rows = array();
