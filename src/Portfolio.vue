@@ -1,5 +1,6 @@
 <template>
     <section id="projects">
+        <app-header ref="firstheader"></app-header>
         <!-- <app-header></app-header> -->
         <h2 class="hide">Spotlight Projects</h2>
         <p class="title">projects</p>
@@ -13,7 +14,7 @@
                     <p class="title">{{project.proj_name}}</p>
                     <p class="subtitle">{{project.proj_tagline}}</p>
                     <!-- <router-link :to="'/project/'+project.projectid"> -->
-                    <router-link :to="{ name: 'project', params: {projectid: project.proj_id, projecttitle: project.proj_name, projecttag: project.proj_tagline, projectposition: project.proj_position, projectdesc: project.proj_brief, projectwork: project.proj_role } }">
+                    <router-link :to="{ name: 'project', params: {projectid: project.proj_id, projecttitle: project.proj_name, projecttag: project.proj_tagline, projectposition: project.proj_position, projectdesc: project.proj_brief, projectwork: project.proj_role, projectmock: project.proj_thumb } }">
                     <!-- <router-link :to="{ name: 'project', params: {projectid: project.proj_id, projectinfo: project[project.proj_id] } }"> -->
                     <div class="viewbutton button" :id="project.proj_id"><p>learn more</p></div>
                     </router-link>
@@ -32,14 +33,11 @@
         created(){
             this.getProjects();
         },
+        mounted(){
+        this.$refs.firstheader.$refs.homeheader.classList.remove("fullscreen");
+        },
         data() {
             return{
-                // projects: [
-                //     {projectid: "1", projectpath: "images/#", projecttitle: "project1", projecttype: "development",},
-                //     {projectid: "2", projectpath: "images/#", projecttitle: "project2", projecttype: "design",},
-                //     {projectid: "3", projectpath: "images/#", projecttitle: "project3", projecttype: "design",},
-                //     {projectid: "4", projectpath: "images/#", projecttitle: "project4", projecttype: "development",}
-                // ]
                 projects: []
             }
         },
