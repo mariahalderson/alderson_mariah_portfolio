@@ -3,9 +3,9 @@
         <app-header ref="firstheader"></app-header>
         <h2 class="hide">About the project</h2>
         <div class="imgcontainer">
-            <img src="./assets/images/reactr-screenview.png" alt="">
+            <img :src="'./src/assets/images/' + projectmock" alt="">
         </div>
-        <h1>{{projecttitle}}</h1>
+        <p class="title">{{projecttitle}}</p>
         <!-- <h2> {{this.$route.params.projectid}} </h2>
         <h2>{{project[this.$route.params.projectid-1].projecttitle}}</h2>
         <h2>{{project[this.$route.params.projectid-1].projecttype}}</h2> -->
@@ -35,7 +35,7 @@
 <script>
 //update: I figured out props
 export default {
-    props: ['projecttitle', 'projecttag', 'projectwork', 'projectdesc', 'projectposition'],
+    props: ['projecttitle', 'projecttag', 'projectwork', 'projectdesc', 'projectposition', 'projectmock'],
     mounted(){
         this.$refs.firstheader.$refs.homeheader.classList.remove("fullscreen");
     },
