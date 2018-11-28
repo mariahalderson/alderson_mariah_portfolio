@@ -11,7 +11,7 @@
     </div>
 
     <!-- <nav id="main navigation"> -->
-    <router-link to="/portfolio" class="navitem" id="portfolio" v-on:click="navclick">
+    <router-link to="/portfolio" class="navitem" id="portfolio">
       <div class="arrow downarrow"></div>portfolio
     </router-link>
     <a class="navitem" id="about" v-on:click="getData">
@@ -31,6 +31,9 @@ export default {
         return{
             name: ''
         }
+    },
+    beforeDestroy(){
+      this.navclick();
     },
     
   methods: {

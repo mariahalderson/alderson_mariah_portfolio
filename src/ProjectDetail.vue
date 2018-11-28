@@ -3,7 +3,7 @@
         <app-header ref="firstheader"></app-header>
         <h2 class="hide">Abou the project</h2>
         <div class="imgcontainer">
-            <img src="" alt="">
+            <img src="./assets/images/reactr-screenview.png" alt="">
         </div>
         <h1>{{projecttitle}}</h1>
         <!-- <h2> {{this.$route.params.projectid}} </h2>
