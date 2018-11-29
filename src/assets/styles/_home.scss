@@ -106,10 +106,21 @@ header.fullscreen{
     display: grid;
     height: 100vh;
 
+    @media screen and (min-width: 650px){
+        height: 100vh;
+        background-color: #fff;
+        z-index: -1;
+    }
+
     #maintitles{
         grid-column: 1 / -1;
         grid-row-start: 1;
         display: block;
+
+        @media screen and (min-width: 650px){
+            display: block;
+            align-self: start;
+        }
 
         .title{
             opacity:1;
@@ -132,12 +143,28 @@ header.fullscreen{
         height: auto;
         max-width: 100%;
         align-self: center;
-        
         transform: translateY(0px);
+
+        @media screen and (min-width: 650px){
+            grid-column: 1 / 14;
+            align-self: start;
+            justify-content: flex-end;
+            width: 50vw;
+            z-index: 2;
+            height: 100vh;
+            transform: none;
+            background-color: $bckgd-color;
+        }
        
         img{
             //height: 100% !important;
-            max-width: 90%;
+            max-width: 80%;
+
+            @media screen and (min-width:650px){
+                max-width: 200px;
+                transform: translateX(100px);
+
+            }
         }
     }
 
@@ -145,11 +172,15 @@ header.fullscreen{
     .navitem{
         font-size: 20px;
         line-height: 20px;
+
+        @media screen and (min-width: 650px){
+            display: none;
+        }
     }
 
         #portfolio{
             //bottom: 50%;
-            margin-bottom: 150px;
+            margin-bottom: 100px;
             transition: all 0.4s ease-out;
             position: fixed;
             z-index: 99;

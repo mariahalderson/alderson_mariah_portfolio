@@ -38,7 +38,11 @@ export default {
     
   methods: {
     navclick() {
-      var pageheader = this.$refs.homeheader;pageheader.classList.remove("fullscreen");
+      console.log("click");
+      this.$refs.homeheader.classList.remove("fullscreen");
+      setTimeout(function(){
+        this.$router.push('/portfolio');
+      },800);
       // var pageheader = document.querySelector("header");
       // var scrollheight = pageheader.offsetHeight;
       // var homepage = document.querySelector("#landing");
