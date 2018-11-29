@@ -1,7 +1,7 @@
 <template>
   <header ref="homeheader" class="fullscreen">
-    <div id="logocontainer">
-      <img src="./assets/images/logo.svg" alt="Mariah Alderson Logo">
+    <div ref="logobox" id="logocontainer" v-bind:style="{ width: computedWidth }">
+      <img src="./assets/images/logo.svg" alt="Mariah Alderson Logo"  v-on:click="windowscroll">
     </div>
 
     <div id="maintitles">
@@ -29,11 +29,21 @@
 export default {
     data(){
         return{
-            name: ''
+            name: '',
+            width: '50vw'
         }
     },
+    created(){
+      //window.addEventListener('click', this.windowscroll);
+    },
     beforeDestroy(){
-      this.navclick();
+      //this.navclick();
+      //window.removeEventListener('click', this.windowscroll);
+    },
+    computed:{
+      computedWidth(event){
+        return this.width;
+      }
     },
     
   methods: {
@@ -81,6 +91,12 @@ export default {
       //     porttext.style.marginLeft = "-27px";
       //   }
       // }, 200);
+    },
+
+    windowscroll(){
+      console.log("clicked");
+      //this.$refs.logobox.width="100vw";
+      this.width="100vw";
     },
 
     getData(e) {
