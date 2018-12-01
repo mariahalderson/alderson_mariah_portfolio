@@ -115,14 +115,29 @@ header.fullscreen{
     //     background-repeat: repeat-x;
     // }
 
+    @media screen and (min-width: 900px){
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100vw;
+    }
+
     .layer{
     display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
     background-color: $bckgd-color;
     width: 100vw;
     height: 100vh;
 
     @media screen and (min-width: 500px){
         grid-template-columns: repeat(12, 1fr);
+    }
+
+    @media screen and (min-width: 900px){
+        display: flex;
+        grid-column: 1 / -1;
+        width: 50vw;
+        justify-self: start;
+        align-items: center;
     }
 
     // @media screen and (min-width: 650px){
@@ -138,6 +153,15 @@ header.fullscreen{
         grid-column: 1 / -1;
         grid-row-start: 1;
         display: block;
+
+        @media screen and (min-width: 900px){
+            //grid-column: 5 / -1;
+            position: absolute;
+            width: 50vw;
+            right: 0px;
+            //top: 20vh
+            //margin-right: 
+        }
 
         // @media screen and (min-width: 650px){
         //     grid-column: 2 / 4;
@@ -170,16 +194,37 @@ header.fullscreen{
         }
     }
 
+    #logocontainer .stopped{
+        img{
+            animation: none;
+        }
+    }
+
     #logocontainer{
         grid-column:1/-1;
         grid-row: 1/-1;
+        //position: relative;
+        //top: 50%;
+        //margin-top: -75px;
         width: auto;
         height: auto;
         max-width: 100%;
-        align-self: center;
+        //align-self: center;
         transform: translateY(0px);
         transition: 0.4s linear;
         margin: auto;
+
+        @media screen and (min-width: 900px){
+            width: 220px;
+            margin: 0;
+            transform: translateX(25vw);
+            display: flex;
+            //animation: pulse 9s linear infinite;
+        }
+
+        // @media screen and (min-width: 600px){
+        //     width: 300px;
+        // }
 
         // @media screen and (min-width: 650px){
         //     grid-column: 1 / -1;
@@ -195,12 +240,21 @@ header.fullscreen{
         img{
             //height: 100% !important;
             max-width: 80%;
+            animation: pulse 9s linear infinite;
 
-            // @media screen and (min-width:650px){
-            //     max-width: 200px;
-            //     transform: translateX(70px);
+            @media screen and (min-width:700px){
+                //max-width: 100%;
+                //max-height: 100%;
+                max-width: 100%;
+                width: 220px;
+                height: 220px;
+                //transform: translateX(70px);
 
-            // }
+            }
+
+            @media screen and (min-width: 900px){
+                justify-self: flex-end;
+            }
         }
     }
 
@@ -208,6 +262,10 @@ header.fullscreen{
     .navitem{
         font-size: 20px;
         line-height: 20px;
+
+        @media screen and (min-width: 900px){
+            display: none;
+        }
 
         // @media screen and (min-width: 650px){
         //     //display: none;
@@ -230,6 +288,10 @@ header.fullscreen{
             @media screen and (min-width: 500px){
                 bottom: 50%;
                 margin-bottom: -140px;
+            }
+
+            @media screen and (min-width: 700px){
+                margin-bottom: -160px;
             }
 
             .arrow{
@@ -255,6 +317,10 @@ header.fullscreen{
                 left: 50%;
                 margin-left: -150px;
                 margin: none;
+            }
+
+            @media screen and (min-width: 700px){
+                margin-left: -170px;
             }
 
             // @media screen and (min-width: 650px){
@@ -283,6 +349,10 @@ header.fullscreen{
             @media screen and (min-width: 500px){
                 right: 50%;
                 margin-right: -150px;
+            }
+
+            @media screen and (min-width: 700px){
+                margin-right: -170px;
             }
 
             // @media screen and (min-width: 650px){

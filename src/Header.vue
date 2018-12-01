@@ -1,8 +1,8 @@
 <template>
   <header ref="homeheader" class="fullscreen">
-    <div class="layer">
+    <div class="layer" ref="layer" v-bind:style="{ width: computedWidth }">
     <div ref="logobox" id="logocontainer" v-bind:style="{ width: computedWidth }">
-      <img src="./assets/images/logo.svg" alt="Mariah Alderson Logo"  v-on:click="windowscroll">
+      <img ref= "img" src="./assets/images/logo.svg" alt="Mariah Alderson Logo"  v-on:click="windowscroll">
     </div>
 
     <div id="maintitles">
@@ -11,7 +11,7 @@
       <p class="subtitle">front-end developer | UX designer</p>
     </div>
 
-    <!-- <nav id="main navigation"> -->
+    <nav id="main navigation">
     <router-link to="/portfolio" class="navitem" id="portfolio">
       <div class="arrow downarrow"></div>portfolio
     </router-link>
@@ -21,7 +21,7 @@
     <a class="navitem" id="resume">
       <div class="arrow leftarrow"></div>resume
     </a>
-    <!-- </nav> -->
+    </nav>
     </div>
   </header>
 </template>
@@ -97,8 +97,9 @@ export default {
 
     windowscroll(){
       console.log("clicked");
-      //this.$refs.logobox.width="100vw";
+      //this.$refs.layer.width="100vw";
       this.width="100vw";
+      this.$refs.img.style.animation="none";
     },
 
     getData(e) {
