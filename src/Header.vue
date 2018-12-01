@@ -1,5 +1,6 @@
 <template>
   <header ref="homeheader" class="fullscreen">
+    <div class="layer">
     <div ref="logobox" id="logocontainer" v-bind:style="{ width: computedWidth }">
       <img src="./assets/images/logo.svg" alt="Mariah Alderson Logo"  v-on:click="windowscroll">
     </div>
@@ -21,6 +22,7 @@
       <div class="arrow leftarrow"></div>resume
     </a>
     <!-- </nav> -->
+    </div>
   </header>
 </template>
 
