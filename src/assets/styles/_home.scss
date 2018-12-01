@@ -7,7 +7,7 @@ header{
     .layer{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     //align-items: center;
     height: 70px;
     width: 100vw;
@@ -37,6 +37,10 @@ header{
         display: flex;
         justify-content: center;
 
+        @media screen and (min-width: 900px){
+            margin-left: 20px;
+        }
+
         img{
             max-width: 100%;
             display: block;
@@ -44,6 +48,13 @@ header{
     }
 
     //nav links
+    #mainnavigation{
+
+        @media screen and (min-width: 900px){
+            display: flex;
+            flex-direction: row;
+            margin-right: 20px;
+        }
     .navitem{
         font-size: 16px;
         line-height: 70px;
@@ -52,6 +63,11 @@ header{
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
+        text-decoration: none;
+
+        @media screen and (min-width: 900px){
+            padding: 0px 10px;
+        }
 
         .arrow{
             width: 0; 
@@ -100,6 +116,7 @@ header{
            display:none;
        }
     }
+}
 }
 }
 
@@ -153,6 +170,7 @@ header.fullscreen{
         grid-column: 1 / -1;
         grid-row-start: 1;
         display: block;
+        transition: all 0.4s ease-out;
 
         @media screen and (min-width: 900px){
             //grid-column: 5 / -1;
@@ -177,8 +195,11 @@ header.fullscreen{
             transform: translateY(0px);
             margin-bottom: 0;
 
-            @media screen and (min-width:650px){
-               // text-align: center !important;
+            @media screen and (min-width:900px){
+               transition: all 0.4s ease;
+               &:hover{
+                   transform: translateY(-5px);
+               }
             }
         }
 
@@ -188,9 +209,12 @@ header.fullscreen{
             opacity: 1;
             transform: translateY(0px);
 
-            @media screen and (min-width:650px){
-                //text-align: right !important;
-            }
+            @media screen and (min-width:900px){
+                transition: all 0.4s ease;
+                &:hover{
+                    transform: translateY(-5px);
+                }
+             }
         }
     }
 
@@ -253,19 +277,39 @@ header.fullscreen{
             }
 
             @media screen and (min-width: 900px){
+                transition: all 0.5s ease;
                 justify-self: flex-end;
+                &:hover{
+                    transform: rotate(360deg);
+                }
             }
         }
     }
 
-        
+    #mainnavigation{
+        @media screen and (min-width: 900px){
+            display: none;
+            flex-direction: row;
+            //justify-self: flex-end;
+            position: absolute;
+            left: 30px;
+            top: 70%;
+        }
+    
     .navitem{
         font-size: 20px;
         line-height: 20px;
 
         @media screen and (min-width: 900px){
-            display: none;
+            // line-height: 60px;
+            padding: 0px 20px;
+
+            &:hover{
+                color: $teal;
+                transform: translateY(-5px);
+            }
         }
+
 
         // @media screen and (min-width: 650px){
         //     //display: none;
@@ -284,6 +328,7 @@ header.fullscreen{
             bottom: 10px;
             left: 50%;
             margin-left: -42px;
+            text-decoration: none;
 
             @media screen and (min-width: 500px){
                 bottom: 50%;
@@ -294,10 +339,18 @@ header.fullscreen{
                 margin-bottom: -160px;
             }
 
+            @media screen and (min-width: 900px){
+                position: static;
+                margin: 0;
+            }
+
             .arrow{
                 display: block;
                 animation: arrowsd 1s linear infinite;
                 border-top-color: rgba($text, 0.4);
+                @media screen and (min-width: 900px){
+                    display: none;
+                }
             }
         }
 
@@ -310,6 +363,7 @@ header.fullscreen{
             left: 10px;
             bottom: 50%;
             margin-bottom: -29px;
+            text-decoration: none;
 
             @media screen and (min-width: 500px){
                // position: static;
@@ -323,6 +377,12 @@ header.fullscreen{
                 margin-left: -170px;
             }
 
+            @media screen and (min-width: 900px){
+                position: static;
+                margin: 0;
+                writing-mode: horizontal-tb;
+            }
+
             // @media screen and (min-width: 650px){
             //     position: static;
             //     writing-mode: horizontal-tb;
@@ -332,6 +392,10 @@ header.fullscreen{
                 display: block;
                 animation: arrowsl 1s linear infinite;
                 border-right-color: rgba($text, 0.4);
+
+                @media screen and (min-width: 900px){
+                    display: none;
+                }
             }
         }
 
@@ -345,6 +409,7 @@ header.fullscreen{
             right: 10px;
             bottom: 50%;
             margin-bottom: -40px;
+            text-decoration: none;
 
             @media screen and (min-width: 500px){
                 right: 50%;
@@ -353,6 +418,13 @@ header.fullscreen{
 
             @media screen and (min-width: 700px){
                 margin-right: -170px;
+            }
+
+            @media screen and (min-width: 900px){
+                position: static;
+                margin: 0;
+                writing-mode: horizontal-tb;
+                transform: none;
             }
 
             // @media screen and (min-width: 650px){
@@ -366,10 +438,15 @@ header.fullscreen{
                 display:block;
                 animation: arrowsl 1s linear infinite;
                 border-right-color: rgba($text, 0.4);
+
+                @media screen and (min-width: 900px){
+                    display: none;
+                }
             }
         }
     //}
     }
+}
 
 }
 
