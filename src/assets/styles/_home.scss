@@ -3,9 +3,11 @@ header{
     z-index: 99;
     top: 0px;
     left: 0px;
+
+    .layer{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     //align-items: center;
     height: 70px;
     width: 100vw;
@@ -30,11 +32,14 @@ header{
     }
 
     #logocontainer{
-
         width: 90px;
         transform: translateY(15px);
         display: flex;
         justify-content: center;
+
+        @media screen and (min-width: 900px){
+            margin-left: 20px;
+        }
 
         img{
             max-width: 100%;
@@ -43,6 +48,13 @@ header{
     }
 
     //nav links
+    #mainnavigation{
+
+        @media screen and (min-width: 900px){
+            display: flex;
+            flex-direction: row;
+            margin-right: 20px;
+        }
     .navitem{
         font-size: 16px;
         line-height: 70px;
@@ -51,6 +63,11 @@ header{
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
+        text-decoration: none;
+
+        @media screen and (min-width: 900px){
+            padding: 0px 10px;
+        }
 
         .arrow{
             width: 0; 
@@ -100,42 +117,89 @@ header{
        }
     }
 }
+}
+}
 
 //full screen header
 header.fullscreen{
-    display: grid;
-    height: 100vh;
+
     background-image: url("../images/bckgd.svg");
     background-position: center bottom;
-    background-repeat: no-repeat;
+    background-repeat: repeat-x;
+    //height: 100vh;
 
-    @media screen and (min-width: 650px){
-        height: 100vh;
-        background-color: #fff;
-        z-index: -1;
-        background-repeat: repeat-x;
-    
+    // @media screen and (min-width: 650px){
+    //     background-repeat: repeat-x;
+    // }
+
+    @media screen and (min-width: 900px){
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100vw;
     }
+
+    .layer{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    background-color: $bckgd-color;
+    width: 100vw;
+    height: 100vh;
+
+    @media screen and (min-width: 500px){
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    @media screen and (min-width: 900px){
+        display: flex;
+        grid-column: 1 / -1;
+        width: 50vw;
+        justify-self: start;
+        align-items: center;
+    }
+
+    // @media screen and (min-width: 650px){
+    //     grid-template-columns: 1fr 1fr 1fr;
+    //     height: 100vh;
+    //     background-color: #fff;
+    //     z-index: -1;
+    //     background-repeat: repeat-x;
+    
+    // }
 
     #maintitles{
         grid-column: 1 / -1;
         grid-row-start: 1;
         display: block;
+        transition: all 0.4s ease-out;
 
-        @media screen and (min-width: 650px){
-            display: block;
-            width: 100vw;
-            align-self: start;
-            margin-right: 10px;
+        @media screen and (min-width: 900px){
+            //grid-column: 5 / -1;
+            position: absolute;
+            width: 50vw;
+            right: 0px;
+            //top: 20vh
+            //margin-right: 
         }
+
+        // @media screen and (min-width: 650px){
+        //     grid-column: 2 / 4;
+        //     display: block;
+        //     width: 100%;
+        //     align-self: start;
+        //     //justify-self: end;
+        //     margin-left: 50px;
+        // }
 
         .title{
             opacity:1;
             transform: translateY(0px);
             margin-bottom: 0;
 
-            @media screen and (min-width:650px){
-                text-align: right !important;
+            @media screen and (min-width:900px){
+               transition: all 0.4s ease;
+               &:hover{
+                   transform: translateY(-5px);
+               }
             }
         }
 
@@ -145,57 +209,114 @@ header.fullscreen{
             opacity: 1;
             transform: translateY(0px);
 
-            @media screen and (min-width:650px){
-                text-align: right !important;
-            }
+            @media screen and (min-width:900px){
+                transition: all 0.4s ease;
+                &:hover{
+                    transform: translateY(-5px);
+                }
+             }
+        }
+    }
+
+    #logocontainer .stopped{
+        img{
+            animation: none;
         }
     }
 
     #logocontainer{
         grid-column:1/-1;
         grid-row: 1/-1;
+        //position: relative;
+        //top: 50%;
+        //margin-top: -75px;
         width: auto;
         height: auto;
         max-width: 100%;
-        align-self: center;
+        //align-self: center;
         transform: translateY(0px);
         transition: 0.4s linear;
+        margin: auto;
 
-        @media screen and (min-width: 650px){
-            grid-column: 1 / 14;
-            align-self: start;
-            justify-content: flex-end;
-            width: 50vw;
-            z-index: 2;
-            height: 100vh;
-            transform: none;
-            background-color: $bckgd-color;
+        @media screen and (min-width: 900px){
+            width: 220px;
+            margin: 0;
+            transform: translateX(25vw);
+            display: flex;
+            //animation: pulse 9s linear infinite;
         }
 
-        .scrolled{
-            width: 100vw;
-        }
-       
+        // @media screen and (min-width: 600px){
+        //     width: 300px;
+        // }
+
+        // @media screen and (min-width: 650px){
+        //     grid-column: 1 / -1;
+        //     align-self: start;
+        //     justify-content: flex-end;
+        //     width: 50vw;
+        //     z-index: 2;
+        //     height: 100vh;
+        //     transform: none;
+        //     background-color: $bckgd-color;
+        // }
+
         img{
             //height: 100% !important;
             max-width: 80%;
+            animation: pulse 9s linear infinite;
 
-            @media screen and (min-width:650px){
-                max-width: 200px;
-                transform: translateX(100px);
+            @media screen and (min-width:700px){
+                //max-width: 100%;
+                //max-height: 100%;
+                max-width: 100%;
+                width: 220px;
+                height: 220px;
+                //transform: translateX(70px);
 
+            }
+
+            @media screen and (min-width: 900px){
+                transition: all 0.5s ease;
+                justify-self: flex-end;
+                &:hover{
+                    transform: rotate(360deg);
+                }
             }
         }
     }
 
-        
+    #mainnavigation{
+        @media screen and (min-width: 900px){
+            display: none;
+            flex-direction: row;
+            //justify-self: flex-end;
+            position: absolute;
+            left: 30px;
+            top: 70%;
+        }
+    
     .navitem{
         font-size: 20px;
         line-height: 20px;
 
-        @media screen and (min-width: 650px){
-            display: none;
+        @media screen and (min-width: 900px){
+            // line-height: 60px;
+            padding: 0px 20px;
+
+            &:hover{
+                color: $teal;
+                transform: translateY(-5px);
+            }
         }
+
+
+        // @media screen and (min-width: 650px){
+        //     //display: none;
+        //     z-index: 99;
+        //     grid-column: 1 / 2;
+        //     grid-row-start: 1;
+        // }
     }
 
         #portfolio{
@@ -207,11 +328,29 @@ header.fullscreen{
             bottom: 10px;
             left: 50%;
             margin-left: -42px;
+            text-decoration: none;
+
+            @media screen and (min-width: 500px){
+                bottom: 50%;
+                margin-bottom: -140px;
+            }
+
+            @media screen and (min-width: 700px){
+                margin-bottom: -160px;
+            }
+
+            @media screen and (min-width: 900px){
+                position: static;
+                margin: 0;
+            }
 
             .arrow{
                 display: block;
                 animation: arrowsd 1s linear infinite;
                 border-top-color: rgba($text, 0.4);
+                @media screen and (min-width: 900px){
+                    display: none;
+                }
             }
         }
 
@@ -224,10 +363,39 @@ header.fullscreen{
             left: 10px;
             bottom: 50%;
             margin-bottom: -29px;
+            text-decoration: none;
+
+            @media screen and (min-width: 500px){
+               // position: static;
+                //grid-column: 4 / 5;
+                left: 50%;
+                margin-left: -150px;
+                margin: none;
+            }
+
+            @media screen and (min-width: 700px){
+                margin-left: -170px;
+            }
+
+            @media screen and (min-width: 900px){
+                position: static;
+                margin: 0;
+                writing-mode: horizontal-tb;
+            }
+
+            // @media screen and (min-width: 650px){
+            //     position: static;
+            //     writing-mode: horizontal-tb;
+            //     margin: 0;
+            // }
             .arrow{
                 display: block;
                 animation: arrowsl 1s linear infinite;
                 border-right-color: rgba($text, 0.4);
+
+                @media screen and (min-width: 900px){
+                    display: none;
+                }
             }
         }
 
@@ -241,14 +409,44 @@ header.fullscreen{
             right: 10px;
             bottom: 50%;
             margin-bottom: -40px;
+            text-decoration: none;
+
+            @media screen and (min-width: 500px){
+                right: 50%;
+                margin-right: -150px;
+            }
+
+            @media screen and (min-width: 700px){
+                margin-right: -170px;
+            }
+
+            @media screen and (min-width: 900px){
+                position: static;
+                margin: 0;
+                writing-mode: horizontal-tb;
+                transform: none;
+            }
+
+            // @media screen and (min-width: 650px){
+            //     position: static;
+            //     writing-mode: horizontal-tb;
+            //     margin: 0;
+            //     transform:none;
+            // }
 
             .arrow{
                 display:block;
                 animation: arrowsl 1s linear infinite;
                 border-right-color: rgba($text, 0.4);
+
+                @media screen and (min-width: 900px){
+                    display: none;
+                }
             }
         }
     //}
+    }
+}
 
 }
 

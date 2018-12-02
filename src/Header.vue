@@ -1,16 +1,17 @@
 <template>
   <header ref="homeheader" class="fullscreen">
+    <div class="layer" ref="layer" v-bind:style="{ width: computedWidth }">
     <div ref="logobox" id="logocontainer" v-bind:style="{ width: computedWidth }">
-      <img src="./assets/images/logo.svg" alt="Mariah Alderson Logo"  v-on:click="windowscroll">
+      <img ref= "img" src="./assets/images/logo.svg" alt="Mariah Alderson Logo"  v-on:click="windowscroll">
     </div>
 
-    <div id="maintitles">
+    <div id="maintitles" ref="titles">
       <p class="title">mariah alderson</p>
       <!-- <p class="title"> {{name}}</p> -->
       <p class="subtitle">front-end developer | UX designer</p>
     </div>
 
-    <!-- <nav id="main navigation"> -->
+    <nav id="mainnavigation" ref="mainnav">
     <router-link to="/portfolio" class="navitem" id="portfolio">
       <div class="arrow downarrow"></div>portfolio
     </router-link>
@@ -20,7 +21,8 @@
     <a class="navitem" id="resume">
       <div class="arrow leftarrow"></div>resume
     </a>
-    <!-- </nav> -->
+    </nav>
+    </div>
   </header>
 </template>
 
@@ -30,7 +32,8 @@ export default {
     data(){
         return{
             name: '',
-            width: '50vw'
+            width: '50vw',
+            scrolled: false
         }
     },
     created(){
@@ -95,8 +98,22 @@ export default {
 
     windowscroll(){
       console.log("clicked");
-      //this.$refs.logobox.width="100vw";
+      //this.$refs.layer.width="100vw";
       this.width="100vw";
+      this.$refs.img.style.animation="none";
+      this.$refs.titles.style.marginTop="50px";
+      this.scrolled = true;
+      this.navanimate();
+    },
+
+    navanimate(){
+      if(this.scrolled){
+      console.log("the window has animated");
+      setTimeout(()=>{
+        this.$refs.mainnav.style.display="flex";
+      },800);
+      
+      }
     },
 
     getData(e) {

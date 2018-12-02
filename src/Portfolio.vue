@@ -35,6 +35,10 @@
         },
         mounted(){
         this.$refs.firstheader.$refs.homeheader.classList.remove("fullscreen");
+        
+      
+        this.$refs.firstheader.$refs.layer.style.width="100vw";
+        this.$refs.firstheader.$refs.logobox.style.width="90px";
         },
         data() {
             return{
