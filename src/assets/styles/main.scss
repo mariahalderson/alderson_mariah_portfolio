@@ -3,6 +3,7 @@
 @import 'animations';
 @import 'home';
 @import 'portfolio';
+@import 'about';
 
 
 *{
@@ -54,6 +55,7 @@ section{
     align-items: center;
     justify-content: center;
     border: 3px solid $yellow;
+    border-radius: 10px;
     color: $yellow;
     font-size: 20px;
     font-family: $copyfont;

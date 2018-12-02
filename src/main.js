@@ -4,6 +4,7 @@ import style from './assets/styles/main.scss';
 import App from './App.vue';
 import Portfolio from './Portfolio.vue';
 import ProjectDetail from './ProjectDetail.vue';
+import About from './About.vue';
 import Header from './Header.vue';
 import Hero from './Hero.vue';
 
@@ -12,7 +13,8 @@ Vue.use(VueRouter);
 const routes = [
   {path: '/project/:projectid', name: 'project', component: ProjectDetail, props: true},
   {path: '/', component: Header},
-  {path: '/portfolio', component: Portfolio}
+  {path: '/portfolio', component: Portfolio},
+  {path: '/about', component: About}
   //each route is an object in an array with a defined path and component to be loaded
   //{path: '/users', component: Users},
   //{path: '/users/:userid', component: Users} //:userid is dynamic data from link
@@ -27,6 +29,7 @@ const router = new VueRouter({
 })
 
 Vue.component('app-portfolio', Portfolio);
+Vue.component('app-about', About);
 Vue.component('app-header', Header);
 Vue.component('app-hero', Hero);
 Vue.component('app-project-details', ProjectDetail);

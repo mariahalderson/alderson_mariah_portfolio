@@ -17,9 +17,9 @@
     <router-link to="/portfolio" class="navitem" id="portfolio">
       <div class="arrow downarrow"></div>portfolio
     </router-link>
-    <a class="navitem" id="about" v-on:click="getData">
+    <router-link to="/about" class="navitem" id="about">
       <div class="arrow leftarrow"></div>about
-    </a>
+    </router-link>
     <a class="navitem" id="resume">
       <div class="arrow leftarrow"></div>resume
     </a>
