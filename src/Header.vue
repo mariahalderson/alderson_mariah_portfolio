@@ -1,7 +1,9 @@
 <template>
   <header ref="homeheader" class="fullscreen">
-    <div class="layer" ref="layer" v-bind:style="{ width: computedWidth }">
-    <div ref="logobox" id="logocontainer" v-bind:style="{ width: computedWidth }">
+    <!-- <div class="layer" ref="layer" v-bind:style="{ width: computedWidth }">
+    <div ref="logobox" id="logocontainer" v-bind:style="{ width: computedWidth }"> -->
+      <div class="layer" ref="layer">
+    <div ref="logobox" id="logocontainer">
       <img ref= "img" src="./assets/images/logo.svg" alt="Mariah Alderson Logo"  v-on:click="windowscroll">
     </div>
 
@@ -38,6 +40,14 @@ export default {
     },
     created(){
       //window.addEventListener('click', this.windowscroll);
+      if(matchMedia){
+          const mq = window.matchMedia("(min-width: 900px)");
+          if(mq.matches){
+            this.width = "50vw";
+          }else{
+            this.width = "100vw";
+          }
+        }
     },
     beforeDestroy(){
       //this.navclick();
@@ -99,7 +109,12 @@ export default {
     windowscroll(){
       console.log("clicked");
       //this.$refs.layer.width="100vw";
-      this.width="100vw";
+      //this.width="100vw";
+      //this.$refs.logobox.style.transform="none";
+      this.$refs.layer.style.width="100vw";
+      this.$refs.logobox.style.maxWidth="none";
+      this.$refs.logobox.style.width="100vw";
+      
       this.$refs.img.style.animation="none";
       this.$refs.titles.style.marginTop="50px";
       this.scrolled = true;

@@ -25,16 +25,22 @@ section{
     font-family: $titlefont;
     color: $teal;
     //color: red;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: $titleweight;
     text-align: center;
 }
 
 .subtitle{
-    color: $text;
+    color: $teal;
     //font-weight: $titleweight;
-    font-size: 18px;
+    font-size: 25px;
     font-family: $copyfont
+}
+
+.copy{
+    color: $text;
+    font-size: 18px;
+    font-family: $copyfont;
 }
 
 .hide{

@@ -151,6 +151,7 @@ header.fullscreen{
 
     @media screen and (min-width: 900px){
         display: flex;
+        justify-content: flex-end;
         grid-column: 1 / -1;
         width: 50vw;
         justify-self: start;
@@ -239,10 +240,13 @@ header.fullscreen{
         margin: auto;
 
         @media screen and (min-width: 900px){
-            width: 220px;
+            // justify-self: flex-end;
+            max-width: 220px;
             margin: 0;
-            transform: translateX(25vw);
+            //transform: translateX(50vw);
+            margin-right: -105px;
             display: flex;
+            justify-content: flex-end;
             //animation: pulse 9s linear infinite;
         }
 

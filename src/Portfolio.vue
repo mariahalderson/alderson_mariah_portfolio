@@ -1,28 +1,63 @@
 <template>
     <section id="projects">
         <app-header ref="firstheader"></app-header>
-        <!-- <app-header></app-header> -->
         <h2 class="hide">Spotlight Projects</h2>
         <p class="title">projects</p>
 
+         <!--project popup window-->
+            <div id="projectinfowindow" ref="projectpopup">
+                <p class="title" id="closepopup" v-on:click="closeproject">X</p>
+                <div id="maininfo">
+
+                    <!--image gallery-->
+                    <div id="imagegallery">
+                        <div class="arrowleft"></div>
+                        <img :src="'./src/assets/images/'+ singleproject.proj_mock" alt="">
+                        <div class="arrowright"></diV>
+                    </div>
+
+                    <!--titles-->
+                    <div id="projecttitles">
+                        <p class="title">{{singleproject.proj_name}}</p>
+                        <p class="subtitle">{{singleproject.proj_tagline}}</p>
+                    </div>
+
+                </div>
+
+                <!--project info-->
+                <div id="projectinfo">
+                    <div id="projectinfo-left">
+                        <p class="subtitle">about the project</p>
+                        <p class="copy">{{singleproject.proj_brief}}</p>
+                    </div>
+
+                    <div id="projectinfo-right">
+                        <p class="subtitle">about my role</p>
+                        <p class="copy">{{singleproject.proj_role}}</p>
+                    </div>
+                </div>
+
+            </div>
+
         <div id="grid-container">
+
+           
             <div class="project-tile" v-for="project in projects">
 
-                <img :src="'./src/assets/images/'+project.proj_thumb" :alt="project.proj_thumb">
+                <img :src="'./src/assets/images/'+project.proj_mock" :alt="project.proj_thumb">
 
                 <div class="hover-info">
                     <p class="title">{{project.proj_name}}</p>
                     <p class="subtitle">{{project.proj_tagline}}</p>
                     <!-- <router-link :to="'/project/'+project.projectid"> -->
-                    <router-link :to="{ name: 'project', params: {projectid: project.proj_id, projecttitle: project.proj_name, projecttag: project.proj_tagline, projectposition: project.proj_position, projectdesc: project.proj_brief, projectwork: project.proj_role, projectmock: project.proj_thumb } }">
+                    <!-- <router-link :to="{ name: 'project', params: {projectid: project.proj_id, projecttitle: project.proj_name, projecttag: project.proj_tagline, projectposition: project.proj_position, projectdesc: project.proj_brief, projectwork: project.proj_role, projectmock: project.proj_mock, projectscreens: project.proj_thumb } }"> -->
                     <!-- <router-link :to="{ name: 'project', params: {projectid: project.proj_id, projectinfo: project[project.proj_id] } }"> -->
-                    <div class="viewbutton button" :id="project.proj_id"><p>learn more</p></div>
-                    </router-link>
+                    <div class="viewbutton button" :id="project.proj_id" v-on:click="getsingleproject"><p>learn more</p></div>
+                    <!-- </router-link> -->
                 </div>
             </div>
         </div>
-        <!-- <router-view :project="projects">
-        </router-view> -->
+
     </section>
 </template>
 
@@ -35,14 +70,13 @@
         },
         mounted(){
         this.$refs.firstheader.$refs.homeheader.classList.remove("fullscreen");
-        
-      
         this.$refs.firstheader.$refs.layer.style.width="100vw";
         this.$refs.firstheader.$refs.logobox.style.width="90px";
         },
         data() {
             return{
-                projects: []
+                projects: [],
+                singleproject: []
             }
         },
         components:{
@@ -61,6 +95,16 @@
                 .catch(function(error) {
                 console.log(error);
                 });
+            },
+            getsingleproject(e){
+                var singleid = e.currentTarget.id;
+                console.log(singleid);
+                this.singleproject = this.projects[singleid-1];
+                console.log(this.singleproject);
+                this.$refs.projectpopup.style.display="block";
+            },
+            closeproject(){
+                this.$refs.projectpopup.style.display="none";
             }
         }
     }
