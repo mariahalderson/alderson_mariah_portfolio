@@ -113,7 +113,7 @@ export default {
                      this.iconpaths.push(this.skills[i].skills_icon);
                  }
              }
-             console.log(this.iconpaths);
+             this.$refs.skillsbox.style.display="flex";
          },
          closebox(){
              this.$refs.skillsbox.style.display="none";

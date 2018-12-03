@@ -113,6 +113,7 @@ export default {
       //this.$refs.layer.width="100vw";
       //this.width="100vw";
       //this.$refs.logobox.style.transform="none";
+      this.$refs.titles.style.width="100vw";
       this.$refs.layer.style.width="100vw";
       this.$refs.logobox.style.maxWidth="none";
       this.$refs.logobox.style.width="100vw";
