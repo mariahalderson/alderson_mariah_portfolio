@@ -29,19 +29,24 @@ section{
     font-size: 40px;
     font-weight: $titleweight;
     text-align: center;
+
+    @media screen and (min-width: 900px){
+        font-size: 50px;
+    }
 }
 
 .subtitle{
     color: $teal;
     //font-weight: $titleweight;
     font-size: 25px;
-    font-family: $copyfont
+    font-family: $copyfont;
 }
 
 .copy{
     color: $text;
     font-size: 18px;
     font-family: $copyfont;
+    line-height: 25px;
 }
 
 .hide{

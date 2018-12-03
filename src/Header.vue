@@ -3,9 +3,11 @@
     <!-- <div class="layer" ref="layer" v-bind:style="{ width: computedWidth }">
     <div ref="logobox" id="logocontainer" v-bind:style="{ width: computedWidth }"> -->
       <div class="layer" ref="layer">
+    <router-link to="/">
     <div ref="logobox" id="logocontainer">
       <img ref= "img" src="./assets/images/logo.svg" alt="Mariah Alderson Logo"  v-on:click="windowscroll">
     </div>
+    </router-link>
 
     <div id="maintitles" ref="titles">
       <p class="title">mariah alderson</p>
@@ -111,10 +113,10 @@ export default {
       //this.$refs.layer.width="100vw";
       //this.width="100vw";
       //this.$refs.logobox.style.transform="none";
+      this.$refs.titles.style.width="100vw";
       this.$refs.layer.style.width="100vw";
       this.$refs.logobox.style.maxWidth="none";
       this.$refs.logobox.style.width="100vw";
-      
       this.$refs.img.style.animation="none";
       this.$refs.titles.style.marginTop="50px";
       this.scrolled = true;
@@ -127,6 +129,10 @@ export default {
       setTimeout(()=>{
         this.$refs.mainnav.style.display="flex";
       },800);
+
+      setTimeout(()=>{
+        this.$refs.mainnav.style.opacity="1";
+      },900);
       
       }
     },
