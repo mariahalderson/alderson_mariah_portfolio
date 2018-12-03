@@ -103,13 +103,17 @@
         #iconcontainer{
             margin-top: 75px;
             display: flex;
-            justify-content: space-around;
+            flex-direction: column;
             flex-wrap: wrap;
-            align-items: flex-start;
+            align-items: center;
+            
 
             @media screen and (min-width: 460px){
                 max-width: 392px;
                 margin: 75px auto 0 auto;
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: space-around;
             }
 
             @media screen and (min-width: 700px){
@@ -117,12 +121,33 @@
             }
 
             @media screen and (min-width: 900px){
-                max-width: 392px;
+                max-width: 410px;
                 margin: 75px auto 50px auto;
             }
 
+            #skilldesc{
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .button{
+                    width: 50px;
+                    height: 50px;
+                }
+
+                img{
+                    max-height: 125px;
+                    max-width: 200px;
+                }
+
+                .title{
+                    color: $yellow;
+                }
+            }
+
             .icon{
-                max-height: 100px;
+                //max-height: 100px;
                 margin: 30px 10px;
                 display: flex;
                 flex-direction: column;
@@ -132,6 +157,11 @@
                 img{
                     height: 75px;
                     max-width: 100px;
+
+                    @media screen and (min-width: 900px){
+                        height: 100px;
+                        max-width: 125px;
+                    }
                 }
 
                 .copy{

@@ -3,9 +3,11 @@
     <!-- <div class="layer" ref="layer" v-bind:style="{ width: computedWidth }">
     <div ref="logobox" id="logocontainer" v-bind:style="{ width: computedWidth }"> -->
       <div class="layer" ref="layer">
+    <router-link to="/">
     <div ref="logobox" id="logocontainer">
       <img ref= "img" src="./assets/images/logo.svg" alt="Mariah Alderson Logo"  v-on:click="windowscroll">
     </div>
+    </router-link>
 
     <div id="maintitles" ref="titles">
       <p class="title">mariah alderson</p>

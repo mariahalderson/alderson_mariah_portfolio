@@ -27,8 +27,23 @@
             <p class="copy">click to learn more</p>
 
             <div id="iconcontainer">
+                <div id="skilldesc" ref="skillsbox">
+                    <div class="button" v-on:click="closebox"><p class="buttoncopy">X</p></div>
+                    <img :src="'./src/assets/images/' + boxskill.skills_icon" alt="">
+                    <div id="skillcopy">
+                        <p class="title">{{boxskill.skills_name}}</p>
+                        <p class="copy">{{boxskill.skills_desc}}</p>
+                    </div>
+
+                    <div id="othericons">
+                        <div class="boxicon" v-for="iconpath in iconpaths">
+                            <img :src="'./src/assets/images/' + iconpath " alt="">
+                        </div>
+                    </div>
+
+                </div>
                 <!--use loop-->
-                <div class="icon" v-for="skill in skills">
+                <div class="icon" v-for="skill in skills" :id="skill.skills_id" v-on:click="openbox">
                     <img :src="'./src/assets/images/' + skill.skills_icon" alt="">
                     <p class="copy">{{skill.skills_name}}</p>
                 </div>
@@ -67,7 +82,9 @@ export default {
      },
      data(){
          return{
-            skills: []
+            skills: [],
+            boxskill: [],
+            iconpaths: []
          }
      },
      methods:{
@@ -83,6 +100,23 @@ export default {
             .catch(function(error) {
             console.log(error);
              });
+         },
+         openbox(e){
+             let skillnum = e.currentTarget.id;
+             this.boxskill = this.skills[skillnum-1];
+             this.iconpaths = [];
+             
+             for(var i=0; i<this.skills.length; i++){
+                 if(i == skillnum-1){
+                     continue;
+                 }else{
+                     this.iconpaths.push(this.skills[i].skills_icon);
+                 }
+             }
+             console.log(this.iconpaths);
+         },
+         closebox(){
+             this.$refs.skillsbox.style.display="none";
          }
      }
 }

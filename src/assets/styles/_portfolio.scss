@@ -1,3 +1,5 @@
+@import 'colors';
+
 #projects{
     background-image: url("../images/bckgd-mirror.svg");
     background-position: center top;
@@ -73,161 +75,189 @@
         }
     }
 
-    #projectinfowindow{
-        display: none;
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        overflow-y: scroll;
-        overflow-x: hidden;
-        width: 100vw;
-        height: 100vh;
-        padding-bottom: 30px;
-        z-index: 9999;
-        background-color: $bckgd-color;
+    // #projectinfowindow{
+    //     display: none;
+    //     position: fixed;
+    //     top: 0px;
+    //     left: 0px;
+    //     overflow-y: scroll;
+    //     overflow-x: hidden;
+    //     width: 100vw;
+    //     height: 100vh;
+    //     padding-bottom: 30px;
+    //     z-index: 9999;
+    //     background-color: $bckgd-color;
         
 
-        @media screen and (min-width: 900px){
-            top: 5%;
-            left: 10%;
-            width: 80vw;
-            height: 90vh;
-            border-radius: 20px;
-        }
+    //     @media screen and (min-width: 900px){
+    //         top: 5%;
+    //         left: 10%;
+    //         width: 80vw;
+    //         height: 90vh;
+    //         border-radius: 20px;
+    //     }
 
-        #closepopup{
-            //position: fixed;
-            width: 40px;
-            margin-left: 10px;
-            margin-top: 10px;
-            margin-bottom: 0;
-            //text-align: left;
-            //top: 7%;
-            //left: 20px;
-            //z-index: 9999999;
-        }
+    //     #closepopup{
+    //         //position: fixed;
+    //         width: 40px;
+    //         margin-left: 10px;
+    //         margin-top: 10px;
+    //         margin-bottom: 0;
+    //         //text-align: left;
+    //         //top: 7%;
+    //         //left: 20px;
+    //         //z-index: 9999999;
+    //     }
 
-        #maininfo{
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            //justify-content: center;
-            align-items: center;
+    //     #maininfo{
+    //         display: flex;
+    //         flex-direction: column;
+    //         width: 100%;
+    //         //justify-content: center;
+    //         align-items: center;
 
-            @media screen and (min-width: 900px){
-                flex-direction: row;
-                justify-content: space-around;
-            }
+    //         @media screen and (min-width: 900px){
+    //             flex-direction: row;
+    //             justify-content: space-around;
+    //         }
 
 
-            #imagegallery{
-                max-width: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: space-around;
-                margin-bottom: 40px;
+    //         #imagegallery{
+    //             max-width: 100%;
+    //             display: flex;
+    //             align-items: center;
+    //             justify-content: space-around;
+    //             margin-bottom: 40px;
 
-                @media screen and (min-width: 900px){
-                    max-width: 50%;
-                    margin-bottom: 0;
-                }
+    //             @media screen and (min-width: 900px){
+    //                 max-width: 50%;
+    //                 margin-bottom: 0;
+    //             }
 
-                .arrowright{
-                    width: 0px;
-                    height: 0px;
-                    border-top: 20px solid transparent;
-                    border-bottom: 20px solid transparent;
-                    border-left: 20px solid $text;
-                }
+    //             .arrowright{
+    //                 width: 0px;
+    //                 height: 0px;
+    //                 border-top: 20px solid transparent;
+    //                 border-bottom: 20px solid transparent;
+    //                 border-left: 20px solid $text;
+    //             }
 
-                .arrowleft{
-                    width: 0px;
-                    height: 0px;
-                    border-top: 20px solid transparent;
-                    border-bottom: 20px solid transparent;
-                    border-right: 20px solid $text;
-                }
+    //             .arrowleft{
+    //                 width: 0px;
+    //                 height: 0px;
+    //                 border-top: 20px solid transparent;
+    //                 border-bottom: 20px solid transparent;
+    //                 border-right: 20px solid $text;
+    //             }
 
-                img{
-                    max-width: 80%;
-                }
-            }
+    //             img{
+    //                 max-width: 80%;
+    //             }
+    //         }
 
-            #projecttitles{
-                .title{
-                    margin: 0;
-                }
-                .subtitle{
-                    margin: 0;
-                }
-            }
-        }
+    //         #projecttitles{
+    //             .title{
+    //                 margin: 0;
+    //             }
+    //             .subtitle{
+    //                 margin: 0;
+    //             }
+    //         }
+    //     }
 
-        #projectinfo{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+    //     #projectinfo{
+    //         display: flex;
+    //         flex-direction: column;
+    //         align-items: center;
 
-            @media screen and (min-width: 700px){
-                flex-direction: row;
-                justify-content: space-around;
-                align-items: flex-start;
-            }
+    //         @media screen and (min-width: 700px){
+    //             flex-direction: row;
+    //             justify-content: space-around;
+    //             align-items: flex-start;
+    //         }
 
-            .subtitle{
-                text-align: center;
-            }
+    //         .subtitle{
+    //             text-align: center;
+    //         }
 
-            div{
-                max-width: 90%;
+    //         div{
+    //             max-width: 90%;
 
-                @media screen and (min-width:700px){
-                    max-width: 45%;
-                }
-            }
-        }
-    }
+    //             @media screen and (min-width:700px){
+    //                 max-width: 45%;
+    //             }
+    //         }
+    //     }
+    // }
 }
 
 
 
 #project{
-    background-color: #fff;
     width: 100%;
-    height: 100vh;
-    top: 70px;
-    left: 0px;
-    position: relative;
+    //height: 100vh;
+    background-color: $bckgd-color;
+
+    #backbutton{
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        width: 50px;
+        height: 50px;
+    }
+
+    #projectcontainer{
+    background-color: #fff;
+    width: 70vw;
+    margin: auto;
     z-index: 9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     @media screen and (min-width: 500px){
         padding: 0px 20px;
     }
 
-    .imgcontainer{
-        max-width: 80%;
-        margin: 0 auto;
-
-        img{
-            max-width: 100%;
+        .vertical{
+            width: 6px;
+            height: 80vh;
+            background-color: $yellow;
+            position: fixed;
+            top: 0px;
+            left: 50%;
+            margin-left: -2.5px;
+            //z-index: 1;
         }
-    }
 
-    .title, .subtitle{
-        text-align: center;
-        margin:10px;
-    }
+        .imgcontainer{
+            max-width: 80%;
+            margin: 0 auto 50px auto;
 
-    .copy{
-        font-size: 16px;
-        font-family: $copyfont;
-        color: #333;
-        max-width: 750px;
-        margin: 20px auto;
-    }
+            img{
+                max-width: 100%;
+            }
+        }
 
-    #projectbrief{
-        margin-top: 50px;
+        .title, .subtitle{
+            text-align: center;
+            margin: 0px;
+        }
+
+        .copy{
+            font-size: 16px;
+            text-align: center;
+            font-family: $copyfont;
+            color: #333;
+            //max-width: 750px;
+            max-width: 50%;
+            margin: 20px auto;
+        }
+
+        #projectbrief{
+            margin-top: 75px;
+            margin-bottom: 50px;
+        }
     }
 }
 
