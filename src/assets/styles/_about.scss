@@ -1,0 +1,182 @@
+
+#about{
+    padding: 0px 20px;
+
+    
+    
+    
+    
+    
+    
+    #aboutheader{
+        margin-top: 100px;
+        margin-bottom: 75px;
+
+        @media screen and (min-width: 700px){
+            display: flex;
+            align-items: center;
+        }
+
+        @media screen and (min-width: 900px){
+            flex-direction: column;
+        }
+
+        #aboutimg{
+            width: 250px;
+            height: 250px;
+            border-radius: 100%;
+            overflow: hidden;
+            margin: auto;
+
+            img{
+                max-width: 300px;
+                margin-left:-30px;
+                margin-top: -30px;
+            }
+        }
+
+        #abouttitles{
+            .title{
+                margin: 0;
+            }
+            .subtitle{
+                margin: 0;
+                text-align: center;
+            }
+        }
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    #aboutintro{
+        margin-bottom: 75px;
+
+        @media screen and (min-width: 700px){
+        padding: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media screen and (min-width: 900px){
+            flex-direction: column-reverse;
+            text-align: center;
+        }
+        }
+
+        p{
+            @media screen and (min-width: 700px){
+                max-width: 50%;
+            }
+        }
+
+        .imgcontainer{
+            margin: auto;
+            max-width: 192px;
+
+            @media screen and (min-width: 700px){
+                margin: 0;
+            }
+        }
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    #aboutskills{
+        p{
+            text-align: center;
+        }
+        .subtitle{
+            margin: 0;
+            font-size: 30px;
+        }
+
+        #iconcontainer{
+            margin-top: 75px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            align-items: flex-start;
+
+            @media screen and (min-width: 460px){
+                max-width: 392px;
+                margin: 75px auto 0 auto;
+            }
+
+            @media screen and (min-width: 700px){
+                max-width: none;
+            }
+
+            @media screen and (min-width: 900px){
+                max-width: 392px;
+                margin: 75px auto 50px auto;
+            }
+
+            .icon{
+                max-height: 100px;
+                margin: 30px 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-end;
+
+                img{
+                    height: 75px;
+                    max-width: 100px;
+                }
+
+                .copy{
+                    color: $yellow;
+                }
+            }
+        }
+    }
+
+
+    hr{
+        max-width: 80%;
+    }
+
+
+
+    #whatido{
+        margin: 100px 0px;
+
+        .subtitle{
+            text-align: center;
+            font-size: 30px;
+        }
+        
+        .copy{
+            @media screen and (min-width: 900px){
+                max-width: 50%;
+                text-align: center;
+                margin: auto;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+    #contactme{
+        p{
+            text-align: center;
+        }
+    }
+
+
+}

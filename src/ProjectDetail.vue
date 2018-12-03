@@ -1,6 +1,7 @@
-<template>
+<template id="projectinfotest">
     <section id="project">
         <app-header ref="firstheader"></app-header>
+        
         <h2 class="hide">About the project</h2>
         <div class="imgcontainer">
             <img :src="'./src/assets/images/' + projectmock" alt="">
@@ -20,7 +21,7 @@
         </div>
 
         <div class="imgcontainer">
-            <img src="" alt="">
+            <img :src="'./src/assets/images/' + projectscreens" alt="">
         </div>
 
         <div id="projectbrief">
@@ -35,14 +36,16 @@
 <script>
 //update: I figured out props
 export default {
-    props: ['projecttitle', 'projecttag', 'projectwork', 'projectdesc', 'projectposition', 'projectmock'],
+    props: ['projecttitle', 'projecttag', 'projectwork', 'projectdesc', 'projectposition', 'projectmock', 'projectscreens'],
     mounted(){
         this.$refs.firstheader.$refs.homeheader.classList.remove("fullscreen");
-    },
+        this.$refs.firstheader.$refs.layer.style.width="100vw";
+        this.$refs.firstheader.$refs.logobox.style.width="90px";
+        },
     methods: {
-        logHeader(){
-            console.log(this.$refs.firstheader.$refs.homeheader.tagName);
-        }
+        // logHeader(){
+        //     console.log(this.$refs.firstheader.$refs.homeheader.tagName);
+        // }
     }
 }
 </script>
