@@ -22,9 +22,9 @@
     <router-link to="/about" class="navitem" id="about">
       <div class="arrow leftarrow"></div>about
     </router-link>
-    <a class="navitem" id="resume">
+    <router-link to="/resume" class="navitem" id="resume">
       <div class="arrow leftarrow"></div>resume
-    </a>
+    </router-link>
     </nav>
     </div>
   </header>
