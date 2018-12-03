@@ -36,8 +36,8 @@
                     </div>
 
                     <div id="othericons">
-                        <div class="boxicon" v-for="iconpath in iconpaths">
-                            <img :src="'./src/assets/images/' + iconpath " alt="">
+                        <div class="boxicon" v-for="iconpath in iconpaths" :id="iconpath.id" v-on:click="openbox">
+                            <img :src="'./src/assets/images/' + iconpath.path" alt="">
                         </div>
                     </div>
 
@@ -110,10 +110,14 @@ export default {
                  if(i == skillnum-1){
                      continue;
                  }else{
-                     this.iconpaths.push(this.skills[i].skills_icon);
+                     this.iconpaths.push({path: this.skills[i].skills_icon, id: this.skills[i].skills_id});
+                    //this.iconpaths.push(this.skills[i].skills_icon);
                  }
              }
+
+             if(this.$refs.skillsbox.style.display="none"){
              this.$refs.skillsbox.style.display="flex";
+             }
          },
          closebox(){
              this.$refs.skillsbox.style.display="none";

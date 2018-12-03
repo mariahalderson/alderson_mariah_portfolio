@@ -117,7 +117,6 @@ export default {
       this.$refs.layer.style.width="100vw";
       this.$refs.logobox.style.maxWidth="none";
       this.$refs.logobox.style.width="100vw";
-      
       this.$refs.img.style.animation="none";
       this.$refs.titles.style.marginTop="50px";
       this.scrolled = true;
@@ -130,6 +129,10 @@ export default {
       setTimeout(()=>{
         this.$refs.mainnav.style.display="flex";
       },800);
+
+      setTimeout(()=>{
+        this.$refs.mainnav.style.opacity="1";
+      },900);
       
       }
     },
