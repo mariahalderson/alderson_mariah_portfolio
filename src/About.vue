@@ -1,7 +1,7 @@
 <template>
     <section id="about">
 
-        <app-header ref="firstheader"></app-header>
+        <!-- <app-header ref="firstheader"></app-header> -->
 
         <div id="aboutheader">
             <div id="aboutimg">
@@ -78,12 +78,12 @@ export default {
     created(){
         this.getData();
     },
-    mounted(){
-        //fix header styling
-        this.$refs.firstheader.$refs.homeheader.classList.remove("fullscreen");
-        this.$refs.firstheader.$refs.layer.style.width="100vw";
-        this.$refs.firstheader.$refs.logobox.style.width="90px";
-     },
+    // mounted(){
+    //     //fix header styling
+    //     this.$refs.firstheader.$refs.homeheader.classList.remove("fullscreen");
+    //     this.$refs.firstheader.$refs.layer.style.width="100vw";
+    //     this.$refs.firstheader.$refs.logobox.style.width="90px";
+    //  },
      data(){
          return{
             skills: [],

@@ -22,8 +22,8 @@
     <router-link to="/about" class="navitem" id="about">
       <div class="arrow leftarrow"></div>about
     </router-link>
-    <router-link to="/resume" class="navitem" id="resume">
-      <div class="arrow leftarrow"></div>resume
+    <router-link to="/contact" class="navitem" id="resume" v-on:click.native="pageleave">
+      <div class="arrow leftarrow"></div>contact
     </router-link>
     </nav>
     </div>
@@ -135,6 +135,13 @@ export default {
       },900);
       
       }
+    },
+
+    pageleave(){
+      console.log("page leave");
+      this.$refs.homeheader.classList.remove("fullscreen");
+      this.$refs.layer.style.width="100vw";
+      this.$refs.logobox.style.width="90px";
     },
 
     getData(e) {
