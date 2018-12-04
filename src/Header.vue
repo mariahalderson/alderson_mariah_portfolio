@@ -3,6 +3,9 @@
     <!-- <div class="layer" ref="layer" v-bind:style="{ width: computedWidth }">
     <div ref="logobox" id="logocontainer" v-bind:style="{ width: computedWidth }"> -->
       <div class="layer" ref="layer">
+
+        <div id="hamburger" ref="hamburger" v-if="nothome" v-on:click="hamburgeropen"><p class="closemenu">X</p></div>
+
     <router-link to="/">
     <div ref="logobox" id="logocontainer">
       <img ref= "img" src="./assets/images/logo.svg" alt="Mariah Alderson Logo"  v-on:click="windowscroll">
@@ -16,15 +19,15 @@
     </div>
 
     <nav id="mainnavigation" ref="mainnav">
-    <router-link to="/portfolio" class="navitem" id="portfolio">
+    <router-link to="/portfolio" class="navitem" id="portfolio" v-on:click.native="pageleave">
       <div class="arrow downarrow"></div>portfolio
     </router-link>
-    <router-link to="/about" class="navitem" id="about">
+    <router-link to="/about" class="navitem" id="about" v-on:click.native="pageleave">
       <div class="arrow leftarrow"></div>about
     </router-link>
-    <a class="navitem" id="resume">
-      <div class="arrow leftarrow"></div>resume
-    </a>
+    <router-link to="/contact" class="navitem" id="resume" v-on:click.native="pageleave">
+      <div class="arrow leftarrow"></div>contact
+    </router-link>
     </nav>
     </div>
   </header>
@@ -37,7 +40,9 @@ export default {
         return{
             name: '',
             width: '50vw',
-            scrolled: false
+            scrolled: false,
+            nothome: false,
+            menuclosed: true
         }
     },
     created(){
@@ -113,6 +118,7 @@ export default {
       //this.$refs.layer.width="100vw";
       //this.width="100vw";
       //this.$refs.logobox.style.transform="none";
+      if(!this.scrolled){
       this.$refs.titles.style.width="100vw";
       this.$refs.layer.style.width="100vw";
       this.$refs.logobox.style.maxWidth="none";
@@ -121,6 +127,7 @@ export default {
       this.$refs.titles.style.marginTop="50px";
       this.scrolled = true;
       this.navanimate();
+      }
     },
 
     navanimate(){
@@ -135,6 +142,34 @@ export default {
       },900);
       
       }
+    },
+
+    hamburgeropen(){
+      console.log("hamburger");
+      this.$refs.hamburger.classList.toggle("openmenu");
+      this.$refs.mainnav.classList.add("hamburgernav");
+      if(this.menuclosed){
+      this.$refs.mainnav.classList.remove("beforehamburger");
+      this.$refs.mainnav.style.height="100vh";
+      this.menuclosed = false;
+      }else{
+        this.$refs.mainnav.classList.add("beforehamburger");
+        this.$refs.mainnav.style.height="0px";
+        this.menuclosed = true;
+      }
+
+    },
+
+    pageleave(){
+      console.log("page leave");
+      this.$refs.homeheader.classList.remove("fullscreen");
+      this.$refs.layer.style.width="100vw";
+      this.$refs.logobox.style.width="90px";
+      this.$refs.mainnav.style.height="0px";
+      this.$refs.mainnav.classList.add("beforehamburger");
+      //this.$refs.mainnav.classList.add("openmenu");
+      this.nothome=true;
+      this.menuclosed= true;
     },
 
     getData(e) {

@@ -1,48 +1,50 @@
 <template>
     <section id="about">
 
-        <app-header ref="firstheader"></app-header>
+        <!-- <app-header ref="firstheader"></app-header> -->
 
         <div id="aboutheader">
             <div id="aboutimg">
                 <img src="./assets/images/about-portrait.jpg" alt="">
             </div>
             
-            <div id="abouttitles">
+            <div id="abouttitles" class="wow fadeInUp">
                 <p class="title">mariah alderson</p>
                 <p class="subtitle">lorem ipsum dolor sit amet</p>
             </div>
         </div>
 
-        <div id="aboutintro">
+        <div id="aboutintro"  class="wow fadeInUp">
             <p class="copy">I am a front-end web developer based in London, Ontario. Sometimes I dabble in UX/UI Design as well, ensuring a smooth user experience from design to development.</p>
 
-            <div class="imgcontainer">
+            <div class="imgcontainer wow fadeInUp" data-wow-delay="0.5s">
                 <img src="./assets/images/map-svg.png" alt="">
             </div>
         </div>
 
         <div id="aboutskills">
-            <p class="subtitle">specialties</p>
-            <p class="copy">click to learn more</p>
+            <p class="subtitle wow fadeInUp" data-wow-delay="0.5s" >specialties</p>
+            <p class="copy wow fadeInUp">click to learn more</p>
 
-            <div id="iconcontainer">
+            <div id="iconcontainer"  class="wow fadeInUp" data-wow-delay="0.5s">
+                <!--lightbox-->
                 <div id="skilldesc" ref="skillsbox">
                     <div class="button" v-on:click="closebox"><p class="buttoncopy">X</p></div>
-                    <img :src="'./src/assets/images/' + boxskill.skills_icon" alt="">
-                    <div id="skillcopy">
+                    <img :src="'./src/assets/images/' + boxskill.skills_icon" alt="" ref="activeicon">
+                    <div id="skillcopy" ref="activecopy">
                         <p class="title">{{boxskill.skills_name}}</p>
                         <p class="copy">{{boxskill.skills_desc}}</p>
                     </div>
 
-                    <div id="othericons">
+                    <div id="othericons" ref="iconlist">
                         <div class="boxicon" v-for="iconpath in iconpaths" :id="iconpath.id" v-on:click="openbox">
                             <img :src="'./src/assets/images/' + iconpath.path" alt="">
                         </div>
                     </div>
 
                 </div>
-                <!--use loop-->
+
+                <!--skills loop-->
                 <div class="icon" v-for="skill in skills" :id="skill.skills_id" v-on:click="openbox">
                     <img :src="'./src/assets/images/' + skill.skills_icon" alt="">
                     <p class="copy">{{skill.skills_name}}</p>
@@ -61,6 +63,7 @@
         </div>
 
         <div id="contactme">
+            <p class="subtitle">get in touch</p>
             <p class="copy">If you are interested in working together, feel free to let me know.</p>
             <div class="button">
                 <p class="buttoncopy">contact me</p>
@@ -75,11 +78,12 @@ export default {
     created(){
         this.getData();
     },
-    mounted(){
-        this.$refs.firstheader.$refs.homeheader.classList.remove("fullscreen");
-        this.$refs.firstheader.$refs.layer.style.width="100vw";
-        this.$refs.firstheader.$refs.logobox.style.width="90px";
-     },
+    // mounted(){
+    //     //fix header styling
+    //     this.$refs.firstheader.$refs.homeheader.classList.remove("fullscreen");
+    //     this.$refs.firstheader.$refs.layer.style.width="100vw";
+    //     this.$refs.firstheader.$refs.logobox.style.width="90px";
+    //  },
      data(){
          return{
             skills: [],
@@ -103,21 +107,35 @@ export default {
          },
          openbox(e){
              let skillnum = e.currentTarget.id;
+             //set elements for transition
+             this.$refs.activeicon.style.opacity="0";
+             this.$refs.activecopy.style.opacity="0";
+             this.$refs.iconlist.style.opacity="0";
+             setTimeout(()=>{
+             //set icon that matches clicked id to active
              this.boxskill = this.skills[skillnum-1];
+             //reset icon paths
              this.iconpaths = [];
              
+             
+             //add path and id for each skill icon EXCEPT active
              for(var i=0; i<this.skills.length; i++){
                  if(i == skillnum-1){
                      continue;
                  }else{
                      this.iconpaths.push({path: this.skills[i].skills_icon, id: this.skills[i].skills_id});
-                    //this.iconpaths.push(this.skills[i].skills_icon);
                  }
              }
-
+            //open lightbox
              if(this.$refs.skillsbox.style.display="none"){
              this.$refs.skillsbox.style.display="flex";
              }
+
+                //end transition
+                this.$refs.activeicon.style.opacity="1";
+                this.$refs.activecopy.style.opacity="1";
+                this.$refs.iconlist.style.opacity="1";
+            },300);
          },
          closebox(){
              this.$refs.skillsbox.style.display="none";

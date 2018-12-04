@@ -5,7 +5,7 @@
         </router-link> -->
         
             
-        <app-header ref="firstheader"></app-header>
+        <!-- <app-header ref="firstheader"></app-header> -->
         <div id="projectcontainer">
         <div class="imgcontainer">
             <img :src="'./src/assets/images/' + projectmock" alt="">
@@ -47,11 +47,11 @@
 //update: I figured out props
 export default {
     props: ['projecttitle', 'projecttag', 'projectwork', 'projectdesc', 'projectposition', 'projectmock', 'projectscreens'],
-    mounted(){
-        this.$refs.firstheader.$refs.homeheader.classList.remove("fullscreen");
-        this.$refs.firstheader.$refs.layer.style.width="100vw";
-        this.$refs.firstheader.$refs.logobox.style.width="90px";
-        },
+    // mounted(){
+    //     this.$refs.firstheader.$refs.homeheader.classList.remove("fullscreen");
+    //     this.$refs.firstheader.$refs.layer.style.width="100vw";
+    //     this.$refs.firstheader.$refs.logobox.style.width="90px";
+    //     },
     methods: {
         // logHeader(){
         //     console.log(this.$refs.firstheader.$refs.homeheader.tagName);

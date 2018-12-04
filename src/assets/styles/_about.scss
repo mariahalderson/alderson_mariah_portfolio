@@ -1,6 +1,6 @@
 
 #about{
-    padding: 0px 20px;
+    padding: 0px 20px 50px 20px;
 
     
     
@@ -157,15 +157,18 @@
                 .title{
                     margin-top: 0;
                     color: $yellow;
+                    transition: all 0.4s ease;
                 }
 
                 img{
                     max-height: 70px;
                     max-width: 145px;
+                    transition: all 0.4s ease;
                 }
 
                 .copy{
                     max-width: 600px;
+                    transition: all 0.4s ease;
                 }
 
                 #othericons{
@@ -174,6 +177,7 @@
                     height: 60px;
                     display: flex;
                     justify-content: space-between;
+                    transition: all 0.4s ease;
 
                     img{
                         height: 60px;
@@ -242,6 +246,11 @@
         p{
             text-align: center;
         }
+
+        .button{
+            margin-top: 40px;
+        }
+
     }
 
 
