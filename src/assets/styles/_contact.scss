@@ -1,0 +1,50 @@
+#contact{
+    margin-top: 100px;
+
+    #contactcontainer{
+
+        .copy{
+            max-width:50%;
+            margin: auto;
+            text-align: center;
+        }
+
+        #formcontainer{
+
+            form{
+                display: flex;
+                flex-direction: column;
+                max-width: 400px;
+                margin: 40px auto;
+
+                label{
+                    font-family: $copyfont;
+                    color: #333;
+                    margin-bottom: 5px;
+                }
+
+                .formfield{
+                    border: 1px solid $teal;
+                    padding: 10px;
+                    border-radius: 2px;
+                    margin-bottom: 15px;
+                    transition: border 0.1s ease;
+
+                    &:focus{
+                        border: 3px solid $teal;
+                    }
+                }
+
+                textarea{
+                    height: 200px;
+                    resize: none;
+                }
+
+                .button{
+                    background-color: #fff;
+                    margin-top: 40px;
+                }
+            }
+        }
+    }
+}
