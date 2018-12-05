@@ -248,7 +248,7 @@
     align-items: center;
 
     @media screen and (min-width: 500px){
-        padding: 0px 20px;
+        padding: 0px;
     }
 
         .vertical{
@@ -286,8 +286,12 @@
             font-family: $copyfont;
             color: $text;
             //max-width: 750px;
-            max-width: 70%;
+            //max-width: 90%;
             margin: 20px auto;
+
+            @media screen and (min-width: 500px){
+                max-width: 90%;
+            }
         }
 
         #projectbrief{
@@ -296,10 +300,18 @@
         }
 
         #buttoncontainer{
-            width: 500px;
-            margin: 0px auto 50px auto;
             display: flex;
+            flex-direction: column;
+            height: 175px;
             justify-content: space-between;
+            margin-bottom: 50px;
+
+            @media screen and (min-width: 650px){
+            flex-direction: row;
+            width: 500px;
+            justify-content: space-between;
+            margin-top: 40px;
+            }
         }
     }
 }
