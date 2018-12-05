@@ -34,8 +34,11 @@
 
 <!-- <div class="vertical"></div> -->
         <div id="buttoncontainer">
-            <div class="button" ref="codebutton"><p class="buttoncopy">source code</p></div>
-            <div class="button" ref="sitebutton"><p class="buttoncopy">visit</p></div>
+            <!-- <div class="button" ref="codebutton"><p class="buttoncopy">source code</p></div>
+            <div class="button" ref="sitebutton"><p class="buttoncopy">visit</p></div> -->
+            <!-- <router-link to="/portfolio"> -->
+            <div class="button" ref="sitebutton" v-on:click="$router.go(-1)"><p class="buttoncopy">back</p></div>
+            <!-- </router-link> -->
         </div>
     </div>
 
@@ -44,7 +47,7 @@
 </template>
 
 <script>
-//update: I figured out props
+
 export default {
     props: ['projecttitle', 'projecttag', 'projectwork', 'projectdesc', 'projectposition', 'projectmock', 'projectscreens'],
     
@@ -53,11 +56,8 @@ export default {
         this.handleResize();
     },
     mounted(){
-    //     this.$refs.firstheader.$refs.homeheader.classList.remove("fullscreen");
-    //     this.$refs.firstheader.$refs.layer.style.width="100vw";
-    //     this.$refs.firstheader.$refs.logobox.style.width="90px";
-    this.imagesizer();
-         },
+        this.imagesizer();
+     },
     data(){
         return{
             windowwidth: 0,
@@ -69,7 +69,6 @@ export default {
         handleResize(){
             this.windowwidth = window.innerWidth;
             this.findsize();
-            //this.imagesizer();
         },
         findsize(){
             if(this.windowwidth < 700){

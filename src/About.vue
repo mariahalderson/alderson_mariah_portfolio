@@ -65,9 +65,11 @@
         <div id="contactme">
             <p class="subtitle">get in touch</p>
             <p class="copy">If you are interested in working together, feel free to let me know.</p>
-            <div class="button">
-                <p class="buttoncopy">contact me</p>
-            </div>
+            <router-link to="/contact">
+                <div class="button">
+                    <p class="buttoncopy">contact me</p>
+                </div>
+            </router-link>
         </div>
 
     </section>

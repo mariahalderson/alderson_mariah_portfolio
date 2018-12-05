@@ -29,7 +29,11 @@ const routes = [
 const router = new VueRouter({
   //pass routes into vue router
   routes,
-  //mode: history //removes hashtag from url
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  },
+  
+  mode: 'history' //removes hashtag from url
 })
 
 Vue.component('app-portfolio', Portfolio);

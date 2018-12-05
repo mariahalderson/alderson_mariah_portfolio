@@ -44,11 +44,15 @@ function send_email() {
 // }
 
 //use this if instead of above when on host 
-//   if(mail($to, $subject, $message, $headers)){
-//       header('Location:./forms/index.php?status=success');
-//   }
+  //if(mail($to, $subject, $message, $headers)){
+    //if(isset($to, $subject, $message, $headers)){
+      //header('Location:./forms/index.php?status=success');
+      //header('Location: localhost:8080/portfolio');
+  //}
+
+  
     
-    //header('Location: ./form.php');
+    
 
 
 }

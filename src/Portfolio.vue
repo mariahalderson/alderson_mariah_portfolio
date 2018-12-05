@@ -3,9 +3,10 @@
         <!-- <app-header ref="firstheader"></app-header> -->
         <h2 class="hide">Spotlight Projects</h2>
         <p class="title">projects</p>
+       
 
         <div id="grid-container">
-
+             <!-- <a href="./src/assets/resume-MariahAlderson.pdf">resume</a> -->
            
             <div class="project-tile view-tenth" v-for="project in projects">
 
