@@ -15,7 +15,7 @@ Vue.use(VueRouter);
 const routes = [
   {path: '/project/:projectid', name: 'project', component: ProjectDetail, props: true},
   {path: '/', component: Resume},
-  {path: '/portfolio', component: Portfolio},
+  {path: '/portfolio', name: 'portfolio', component: Portfolio},
   {path: '/about', component: About},
   {path: '/resume', component: Resume},
   {path: '/contact', component: Contact}

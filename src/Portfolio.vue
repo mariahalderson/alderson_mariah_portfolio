@@ -7,17 +7,17 @@
         <div id="grid-container">
 
            
-            <div class="project-tile" v-for="project in projects">
+            <div class="project-tile view-tenth" v-for="project in projects">
 
-                <img :src="'./src/assets/images/'+project.proj_mock" :alt="project.proj_thumb">
+                <img :src="'./src/assets/images/'+project.proj_thumb" :alt="project.proj_thumb">
 
-                <div class="hover-info">
+                <div class="hover-info mask">
                     <p class="title">{{project.proj_name}}</p>
                     <p class="subtitle">{{project.proj_tagline}}</p>
                     <!-- <router-link :to="'/project/'+project.projectid"> -->
-                    <router-link :to="{ name: 'project', params: {projectid: project.proj_id, projecttitle: project.proj_name, projecttag: project.proj_tagline, projectposition: project.proj_position, projectdesc: project.proj_brief, projectwork: project.proj_role, projectmock: project.proj_mock, projectscreens: project.proj_thumb } }">
+                    <router-link :to="{ name: 'project', params: {projectid: project.proj_id, projecttitle: project.proj_name, projecttag: project.proj_tagline, projectposition: project.proj_position, projectdesc: project.proj_brief, projectwork: project.proj_role, projectmock: project.proj_mock, projectscreens: project.proj_screens } }">
                     <!-- <router-link :to="{ name: 'project', params: {projectid: project.proj_id, projectinfo: project[project.proj_id] } }"> -->
-                    <div class="viewbutton button" :id="project.proj_id"><p>learn more</p></div>
+                        <div class="viewbutton button" :id="project.proj_id"><p>learn more</p></div>
                     </router-link>
                 </div>
             </div>
