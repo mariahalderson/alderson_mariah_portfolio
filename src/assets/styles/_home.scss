@@ -61,15 +61,22 @@ header{
 
     #logocontainer{
         width: 90px;
-        transform: translateY(15px);
+        position: fixed;
+        top: 0px;
+        left: 50%;
+        margin-top: -35px;
+        margin-left: -45px;
+        z-index: 101;
         display: flex;
         justify-content: center;
+        
 
         @media screen and (min-width: 900px){
             margin-left: 20px;
         }
 
         img{
+            width: 60px;
             max-width: 100%;
             display: block;
         }
@@ -153,6 +160,7 @@ header{
 }
 
 #mainnavigation.beforehamburger{
+    height: 0px;
     .navitem{
         display: none !important;
     }
@@ -170,11 +178,20 @@ header{
     align-items: center;
     justify-content: flex-start;
 
+    @media screen and (min-width: 700px){
+        flex-direction: row;
+        height: 70px;
+    }
+
     .navitem{
         display:block;
         margin:0;
         padding: 0;
         position: static;
+
+        &:first-child{
+            margin-top: 40px;
+        }
     }
 
 }

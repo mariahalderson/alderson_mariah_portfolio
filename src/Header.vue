@@ -42,19 +42,14 @@ export default {
             width: '50vw',
             scrolled: false,
             nothome: false,
-            menuclosed: true
+            menuclosed: true,
+            windowwidth: 0
         }
     },
     created(){
-      //window.addEventListener('click', this.windowscroll);
-      if(matchMedia){
-          const mq = window.matchMedia("(min-width: 900px)");
-          if(mq.matches){
-            this.width = "50vw";
-          }else{
-            this.width = "100vw";
-          }
-        }
+      window.addEventListener('resize', this.handleResize)
+      this.handleResize();
+  
     },
     beforeDestroy(){
       //this.navclick();
@@ -73,51 +68,14 @@ export default {
       setTimeout(function(){
         this.$router.push('/portfolio');
       },800);
-      // var pageheader = document.querySelector("header");
-      // var scrollheight = pageheader.offsetHeight;
-      // var homepage = document.querySelector("#landing");
-      // var porttext = document.querySelector("#portfolio");
-      // //var portarrow = document.querySelector("#portfolio .arrow");
-
-      // //portarrow.style.transform="rotate(180deg)";
-      // // portarrow.style.borderBottom="15px solid $bckgd-color";
-      // // portarrow.style.borderTopColor="transparent";
-      // // portarrow.style.borderTop="";
-
-      // pageheader.classList.toggle("fullscreen");
-      // setTimeout(function() {
-      //   if (pageheader.classList.contains("fullscreen")) {
-      //     //window.scrollTo(0,scrollheight);
-      //     homepage.style.height = "100vh";
-      //     porttext.innerHTML = "<div class='arrow downarrow'></div>portfolio";
-      //     porttext.style.marginLeft = "-42px";
-      //     homepage.style.backgroundSize = "auto";
-      //     document.querySelector("#projects").style.backgroundAttachment =
-      //       "scroll";
-      //     setTimeout(function() {
-      //       window.scrollTo(0, 0);
-      //       document.body.style.overflowY = "hidden";
-      //     }, 300);
-      //   } else {
-      //     homepage.style.backgroundSize = "cover";
-      //     homepage.style.height = "0px";
-      //     document.body.style.overflowY = "scroll";
-      //     setTimeout(function() {
-      //       document.querySelector("#projects").style.backgroundAttachment =
-      //         "fixed";
-      //       document.body.overflowY = "scroll";
-      //     }, 300);
-      //     porttext.innerHTML = "<div class='arrow downarrow'></div>home";
-      //     porttext.style.marginLeft = "-27px";
-      //   }
-      // }, 200);
+    },
+    handleResize(){
+      this.windowwidth = window.innerWidth;
+      console.log(this.windowwidth);
     },
 
     windowscroll(){
       console.log("clicked");
-      //this.$refs.layer.width="100vw";
-      //this.width="100vw";
-      //this.$refs.logobox.style.transform="none";
       if(!this.scrolled){
       this.$refs.titles.style.width="100vw";
       this.$refs.layer.style.width="100vw";
@@ -146,15 +104,20 @@ export default {
 
     hamburgeropen(){
       console.log("hamburger");
-      this.$refs.hamburger.classList.toggle("openmenu");
+      this.$refs.hamburger.classList.add("openmenu");
       this.$refs.mainnav.classList.add("hamburgernav");
       if(this.menuclosed){
       this.$refs.mainnav.classList.remove("beforehamburger");
-      this.$refs.mainnav.style.height="100vh";
+      if(this.windowwidth < 900){
+       this.$refs.mainnav.style.height="100vh";
+      }else{
+        this.$refs.mainnav.style.height="70px";
+      }
       this.menuclosed = false;
       }else{
         this.$refs.mainnav.classList.add("beforehamburger");
         this.$refs.mainnav.style.height="0px";
+        this.$refs.hamburger.classList.remove("openmenu");
         this.menuclosed = true;
       }
 
@@ -167,9 +130,11 @@ export default {
       this.$refs.logobox.style.width="90px";
       this.$refs.mainnav.style.height="0px";
       this.$refs.mainnav.classList.add("beforehamburger");
-      //this.$refs.mainnav.classList.add("openmenu");
       this.nothome=true;
       this.menuclosed= true;
+      if(this.menuclosed){
+        this.$refs.hamburger.classList.remove("openmenu");
+      }
     },
 
     getData(e) {
@@ -192,6 +157,15 @@ export default {
       //this.logo = "images/" + data.images_path;
       //document.querySelector("img").src = "images/" + this.logo;
       this.name = data.images_name;
+    },
+
+    setdisplay(){
+      var mql = window.matchMedia("(min-width: 700px)");
+      if(mql.matches){
+        console.log("at least 700 pixels");
+      }else{
+        console.log("less than 700 pixels");
+      }
     }
   }
 };

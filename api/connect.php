@@ -4,7 +4,7 @@ $un = "root";
 $pw = "";
 $dbname = "db_portfolio";
 
-echo "it sent";
+
 $connect = mysqli_connect($host, $un, $pw, $dbname);
 mysqli_set_charset($connect, 'utf8');
 
