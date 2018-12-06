@@ -7,7 +7,7 @@
             <p class="copy">Feel free to contact me here for inquiries at any time, and I will be sure to get back to you as soon as possible.</p>
 
             <div id="formcontainer">
-                <form action="http://localhost/alderson_mariah_portfolio/api/form.php" method="POST">
+                <form action="/api/form.php" method="POST">
                     <label for="name" type="text">name:</label>
                     <input name="name" class="formfield" v-model="form.name">
 

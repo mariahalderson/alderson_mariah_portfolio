@@ -13,6 +13,9 @@ header{
     background-color: $bckgd-color;
     transition: all 0.2s ease-out;
 
+    #hamburgercontainer{
+         display: none;
+
     #hamburger{
         cursor: pointer;
         overflow: hidden;
@@ -36,6 +39,7 @@ header{
             text-align: center;
         }
     }
+}
 
     .openmenu{
         box-shadow: none !important;
@@ -119,6 +123,7 @@ header{
         }
 
         #home{
+            display: none;
             @media screen and (min-width: 900px){
                 margin-left: 30px;
             }
@@ -168,6 +173,10 @@ header{
         .arrow{
             display: none;
         }
+    }
+
+    #resume{
+        display: none;
     }
 
     #about{ 
@@ -432,14 +441,15 @@ header.fullscreen{
             text-orientation: mixed;
             transition: all 0.4s ease-out;
             position: fixed;
-            left: 50%;
+            left: 0px;
             bottom: 50%;
-            margin-left: -220px;
+            margin-left: 20px;
             margin-bottom: -90px;
             text-decoration: none;
 
-            @media screen and (min-width: 700px){
-                margin-left: -220px;
+            @media screen and (min-width: 500px){
+                left: 50%;
+                margin-left: -170px;
             }
 
             @media screen and (min-width: 900px){
@@ -471,11 +481,16 @@ header.fullscreen{
             position: fixed;
             transform: rotate(180deg);
             color: $text;
-            right: 50%;
+            right: 0%;
             bottom: 50%;
-            margin-right: -160px;
+            margin-right: 20px;
             margin-bottom: -50px;
             text-decoration: none;
+
+            @media screen and (min-width: 500px){
+                right: 50%;
+                margin-right: -160px;
+            }
 
             @media screen and (min-width: 900px){
                 position: static;

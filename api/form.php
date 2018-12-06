@@ -11,12 +11,12 @@ function send_email() {
     $headers = 'From: noreply@mariahalderson.com' . '\r\n';
     $headers .= "Reply-To:".$_POST['email'];
 
-    //mail($to, $subject, $message, $headers);
+    mail($to, $subject, $message, $headers);
 
     if(isset ($to, $subject, $message, $headers)){
-        echo "everything set!" . '\r\n'. $to . '\r\n' . $subject . '\r\n' . $message . '\r\n' . $headers;
+        header('Location:http://mariahalderson.com/#/contact');
     }else{
-        echo "we are missing one";
+        header('Location:http://mariahalderson.com/#/contact');
     }
     //eth
     // if(empty($_POST['email'])){

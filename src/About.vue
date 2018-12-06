@@ -33,7 +33,7 @@
                 <!--lightbox-->
                 <div id="skilldesc" ref="skillsbox">
                     <div class="button" v-on:click="closebox"><p class="buttoncopy">X</p></div>
-                    <img :src="'./src/assets/images/' + boxskill.skills_icon" alt="" ref="activeicon">
+                    <img :src="'/dist/' + boxskill.skills_icon" alt="" ref="activeicon">
                     <div id="skillcopy" ref="activecopy">
                         <p class="title">{{boxskill.skills_name}}</p>
                         <p class="copy">{{boxskill.skills_desc}}</p>
@@ -41,7 +41,7 @@
 
                     <div id="othericons" ref="iconlist">
                         <div class="boxicon" v-for="iconpath in iconpaths" :id="iconpath.id" v-on:click="openbox">
-                            <img :src="'./src/assets/images/' + iconpath.path" alt="">
+                            <img :src="'/dist/' + iconpath.path" alt="">
                         </div>
                     </div>
 
@@ -49,7 +49,7 @@
 
                 <!--skills loop-->
                 <div class="icon" v-for="skill in skills" :id="skill.skills_id" v-on:click="openbox">
-                    <img :src="'./src/assets/images/' + skill.skills_icon" alt="">
+                    <img :src="'/dist/' + skill.skills_icon" alt="">
                     <p class="copy">{{skill.skills_name}}</p>
                 </div>
             </div>
@@ -105,7 +105,7 @@ export default {
      methods:{
 
          getData(){
-             let targeturl = "http://localhost/alderson_mariah_portfolio/api/connect.php?skills=all";
+             let targeturl = "/api/connect.php?skills=all";
 
              fetch(targeturl) 
             .then(res => res.json()) 

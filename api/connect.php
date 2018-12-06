@@ -1,8 +1,10 @@
 <?php
 $host = "localhost";
-$un = "root";
-$pw = "";
-$dbname = "db_portfolio";
+//$un = "root";
+$un="mariahal_root";
+$pw = "TinaFey1!";
+//$dbname = "db_portfolio";
+$dbname = "mariahal_portfolio";
 
 
 $connect = mysqli_connect($host, $un, $pw, $dbname);

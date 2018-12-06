@@ -126,8 +126,8 @@ export default {
             console.log("joined: " +jointpath);
             console.log("joined: " +jointpath2);
 
-            this.mockpath = "./src/assets/images/"+jointpath;
-            this.screenpath = "./src/assets/images/"+jointpath2;
+            this.mockpath = "/dist/"+jointpath;
+            this.screenpath = "/dist/"+jointpath2;
             
             //image = "./src/assets/images/"+jointpath;
             console.log(image);
