@@ -5,10 +5,12 @@
 @import 'portfolio';
 @import 'about';
 @import 'contact';
+@import 'hovereffects';
 
 
 *{
     box-sizing: border-box;
+    text-decoration: none;
 }
 html{
     scroll-behavior: smooth;
@@ -38,7 +40,6 @@ section{
 
 .subtitle{
     color: $teal;
-    //font-weight: $titleweight;
     font-size: 25px;
     font-family: $copyfont;
 }

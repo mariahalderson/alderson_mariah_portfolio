@@ -2,14 +2,11 @@
     <section id="contact">
         <h2 class="hide">Contact Me</h2>
 
-        <!-- <app-header ref="firstheader"></app-header> -->
-
         <div id="contactcontainer">
             <p class="title">contact</p>
             <p class="copy">Feel free to contact me here for inquiries at any time, and I will be sure to get back to you as soon as possible.</p>
 
             <div id="formcontainer">
-                <!-- <form action="./api/form.php" method="POST"> -->
                 <form action="http://localhost/alderson_mariah_portfolio/api/form.php" method="POST">
                     <label for="name" type="text">name:</label>
                     <input name="name" class="formfield" v-model="form.name">
@@ -25,7 +22,9 @@
                     <button type="submit" class="button">submit</button>
                 </form>
             </div>
+
         </div>
+        
     </section>
 </template>
 
