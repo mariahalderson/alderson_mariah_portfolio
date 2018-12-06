@@ -1,50 +1,58 @@
 <template id="projectinfotest">
     <section id="project">
-        <!-- <router-link to="/portfolio">
-        <div class="button" id="backbutton"><p class="buttoncopy">X</p></div>
-        </router-link> -->
-        
-            
-        <!-- <app-header ref="firstheader"></app-header> -->
+        <h2 class="hide">Portfolio Project: {{projecttitlle}}</h2>
+
         <div id="projectcontainer">
-        <div class="imgcontainer">
-            <img :src="mockpath" alt="" ref="mockimg">
-        </div>
 
-        <h2 class="hide">About the project</h2>
-        <p class="title">{{projecttitle}}</p>
-        <p class="subtitle">{{projecttag}}</p>
-        <p class="subtitle">{{projectposition}}</p>
+            <div class="imgcontainer">
+                <img :src="mockpath" alt="mockup" ref="mockimg">
+            </div>
+
+
+            <h2 class="hide">About the project</h2>
+            <p class="title">{{projecttitle}}</p>
+            <p class="subtitle">{{projecttag}}</p>
+            <p class="subtitle">{{projectposition}}</p>
         
-        
 
-        <div id="projectbrief">
-            <p class="subtitle">about the project</p>
-            <p class="copy">{{projectdesc}}</p>
-        </div>
+            <div id="projectbrief">
+                <p class="subtitle">about the project</p>
+                <p class="copy">{{projectdesc}}</p>
+            </div>
 
-        <div class="imgcontainer">
-            <img :src="'./src/assets/images/' + projectscreens" alt="">
-        </div>
 
-        <div id="projectbrief">
-            <p class="subtitle">the build</p>
-            <p class="copy">{{projectwork}}</p>
-        </div>
+            <div class="imgcontainer">
+                <img :src="'./src/assets/images/' + projectscreens" alt="mockup">
+            </div>
 
-<!-- <div class="vertical"></div> -->
-        <div id="buttoncontainer">
-            <div class="button" ref="codebutton"><p class="buttoncopy">source code</p></div>
-            <div class="button" ref="sitebutton"><p class="buttoncopy">visit</p></div>
+
+            <div id="projectbrief">
+                <p class="subtitle">the build</p>
+                <p class="copy">{{projectwork}}</p>
+            </div>
+
+
+            <div id="buttoncontainer">
+                <!-- <div class="button" ref="codebutton"><p class="buttoncopy">source code</p></div>
+                <div class="button" ref="sitebutton"><p class="buttoncopy">visit</p></div> -->
+                <router-link to="/portfolio">
+                    <div class="button" ref="sitebutton"><p class="buttoncopy">back</p></div>
+                </router-link>
+            </div>
+
         </div>
-    </div>
 
     </section>
 
 </template>
 
+
+
+
+
+
 <script>
-//update: I figured out props
+
 export default {
     props: ['projecttitle', 'projecttag', 'projectwork', 'projectdesc', 'projectposition', 'projectmock', 'projectscreens'],
     
@@ -52,12 +60,11 @@ export default {
         window.addEventListener('resize', this.handleResize)
         this.handleResize();
     },
+
     mounted(){
-    //     this.$refs.firstheader.$refs.homeheader.classList.remove("fullscreen");
-    //     this.$refs.firstheader.$refs.layer.style.width="100vw";
-    //     this.$refs.firstheader.$refs.logobox.style.width="90px";
-    this.imagesizer();
-         },
+        this.imagesizer();
+    },
+
     data(){
         return{
             windowwidth: 0,
@@ -65,12 +72,15 @@ export default {
             mockpath: this.projectmock
         }
     },
+
     methods: {
+
         handleResize(){
             this.windowwidth = window.innerWidth;
             this.findsize();
             //this.imagesizer();
         },
+
         findsize(){
             if(this.windowwidth < 700){
                 this.smallimage = true;
@@ -85,10 +95,9 @@ export default {
                 this.imagesizer();
             }
         },
+
         imagesizer(){
-            //var imgpath = this.$refs.mockimg.src;
             var imgpath = this.projectmock;
-            console.log(imgpath);
             var splitpath = imgpath.split(".");
             //save img extension
             var imgtype = splitpath[1];
@@ -104,9 +113,9 @@ export default {
             //rewrite src
             var jointpath = splitpath.join().replace(',','');
             this.mockpath = "./src/assets/images/"+jointpath;
-            //this.$refs.mockimg.src = this.mockimg;
-           console.log(jointpath);
         }
+
     }
 }
+
 </script>

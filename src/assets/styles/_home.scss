@@ -68,9 +68,9 @@ header{
         width: 90px;
         height: 90px;
         position: fixed;
-        top: 0px;
+        top: 5px;
         left: 50%;
-        margin-top: -35px;
+        //margin-top: -35px;
         margin-left: -45px;
         z-index: 101;
         display: flex;
@@ -79,12 +79,12 @@ header{
         @media screen and (min-width: 500px){
             left: 75px;
             margin-left: 0;
-            top: 35px;
+            //top: 35px;
         }
         
 
         img{
-            width: 60px;
+            width: 70px;
             max-width: 100%;
             display: block;
 
@@ -162,7 +162,7 @@ header{
         }
     }
 
-    #resume{
+    #nav-contact{
         color: $text;
 
        .arrow{
@@ -527,7 +527,7 @@ header.fullscreen{
             }
         }
 
-        #resume{
+        #nav-contact{
             writing-mode: vertical-rl;
             text-orientation: mixed;
             transition: all 0.4s ease-out;

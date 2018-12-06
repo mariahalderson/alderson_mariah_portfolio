@@ -14,11 +14,11 @@ Vue.use(VueRouter);
 
 const routes = [
   {path: '/project/:projectid', name: 'project', component: ProjectDetail, props: true},
-  {path: '/', component: Resume},
+  {path: '/', component: Hero},
   {path: '/portfolio', name: 'portfolio', component: Portfolio},
   {path: '/about', component: About},
   {path: '/resume', component: Resume},
-  {path: '/contact', component: Contact}
+  {path: '/contact', name: 'contact', component: Contact}
   //each route is an object in an array with a defined path and component to be loaded
   //{path: '/users', component: Users},
   //{path: '/users/:userid', component: Users} //:userid is dynamic data from link
@@ -29,7 +29,7 @@ const routes = [
 const router = new VueRouter({
   //pass routes into vue router
   routes,
-  //mode: history //removes hashtag from url
+  //mode: 'history' //removes hashtag from url
 })
 
 Vue.component('app-portfolio', Portfolio);

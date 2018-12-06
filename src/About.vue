@@ -1,30 +1,33 @@
 <template>
     <section id="about">
-
-        <!-- <app-header ref="firstheader"></app-header> -->
+        <h2 class="hide">About Mariah</h2>
 
         <div id="aboutheader">
             <div id="aboutimg">
-                <img src="./assets/images/about-portrait.jpg" alt="">
+                <img src="./assets/images/about-portrait.jpg" alt="Mariah Alderson">
             </div>
             
-            <div id="abouttitles" class="wow fadeInUp">
+            <div id="abouttitles">
                 <p class="title">mariah alderson</p>
                 <p class="subtitle">lorem ipsum dolor sit amet</p>
             </div>
         </div>
 
-        <div id="aboutintro"  class="wow fadeInUp">
+
+
+        <div id="aboutintro">
             <p class="copy">I am a front-end web developer based in London, Ontario. Sometimes I dabble in UX/UI Design as well, ensuring a smooth user experience from design to development.</p>
 
-            <div class="imgcontainer wow fadeInUp" data-wow-delay="0.5s">
-                <img src="./assets/images/map-svg.png" alt="">
+            <div class="imgcontainer" data-wow-delay="0.5s">
+                <img src="./assets/images/map-svg.png" alt="Map Icon of London, Ontario">
             </div>
         </div>
 
+
+
         <div id="aboutskills">
-            <p class="subtitle wow fadeInUp" data-wow-delay="0.5s" >specialties</p>
-            <p class="copy wow fadeInUp">click to learn more</p>
+            <p class="subtitle">specialties</p>
+            <p class="copy">click to learn more</p>
 
             <div id="iconcontainer"  class="wow fadeInUp" data-wow-delay="0.5s">
                 <!--lightbox-->
@@ -52,7 +55,7 @@
             </div>
         </div>
 
-        <hr>
+        
 
         <div id="whatido">
             <p class="subtitle">what i do</p>
@@ -62,10 +65,16 @@
             <p class="copy">In my spare time, my unrelated hobbies include long hikes with my dog, concert-going, weight lifting, and super amateur photography. </p>
         </div>
 
+
+
+        <hr>
+
+
+
         <div id="contactme">
             <p class="subtitle">get in touch</p>
             <p class="copy">If you are interested in working together, feel free to let me know.</p>
-            <div class="button">
+            <div class="button" v-on:click="$router.push({name: 'contact'})">
                 <p class="buttoncopy">contact me</p>
             </div>
         </div>
@@ -73,25 +82,28 @@
     </section>
 </template>
 
+
+
+
+
 <script>
+
 export default {
+
     created(){
         this.getData();
     },
-    // mounted(){
-    //     //fix header styling
-    //     this.$refs.firstheader.$refs.homeheader.classList.remove("fullscreen");
-    //     this.$refs.firstheader.$refs.layer.style.width="100vw";
-    //     this.$refs.firstheader.$refs.logobox.style.width="90px";
-    //  },
-     data(){
+  
+    data(){
          return{
             skills: [],
             boxskill: [],
             iconpaths: []
          }
-     },
+    },
+
      methods:{
+
          getData(){
              let targeturl = "http://localhost/alderson_mariah_portfolio/api/connect.php?skills=all";
 
@@ -105,6 +117,7 @@ export default {
             console.log(error);
              });
          },
+
          openbox(e){
              let skillnum = e.currentTarget.id;
              //set elements for transition
@@ -137,9 +150,12 @@ export default {
                 this.$refs.iconlist.style.opacity="1";
             },300);
          },
+
          closebox(){
              this.$refs.skillsbox.style.display="none";
          }
+
      }
 }
+
 </script>

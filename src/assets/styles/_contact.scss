@@ -1,12 +1,21 @@
 #contact{
-    margin-top: 100px;
+    padding-top: 100px;
+    background-image: url("/src/assets/images/bckgd-lines-top.svg");
+    background-position: center top;
+    background-repeat: repeat-x;
+    background-size: auto 500px;
+
 
     #contactcontainer{
 
         .copy{
-            max-width:50%;
+            max-width:90%;
             margin: auto;
             text-align: center;
+
+            @media screen and (min-width: 900px){
+                max-width: 40%;
+            }
         }
 
         #formcontainer{
@@ -29,6 +38,7 @@
                     border-radius: 2px;
                     margin-bottom: 15px;
                     transition: border 0.1s ease;
+                    font-family: $copyfont;
 
                     &:focus{
                         border: 3px solid $teal;
@@ -38,6 +48,7 @@
                 textarea{
                     height: 200px;
                     resize: none;
+                    font-family: $copyfont;
                 }
 
                 .button{
