@@ -22,7 +22,8 @@
 
 
             <div class="imgcontainer">
-                <img :src="'./src/assets/images/' + projectscreens" alt="mockup">
+                <!-- <img :src="'./src/assets/images/' + projectscreens" alt="mockup"> -->
+                <img :src="screenpath" alt="mockup">
             </div>
 
 
@@ -62,6 +63,8 @@ export default {
     },
 
     mounted(){
+        //this.imagesizer(this.mockpath);
+        //this.imagesizer(this.screenpath);
         this.imagesizer();
     },
 
@@ -69,7 +72,8 @@ export default {
         return{
             windowwidth: 0,
             smallimage: true,
-            mockpath: this.projectmock
+            mockpath: this.projectmock,
+            screenpath: this.projectscreens
         }
     },
 
@@ -78,7 +82,6 @@ export default {
         handleResize(){
             this.windowwidth = window.innerWidth;
             this.findsize();
-            //this.imagesizer();
         },
 
         findsize(){
@@ -96,23 +99,38 @@ export default {
             }
         },
 
-        imagesizer(){
+        imagesizer(image){
+            
             var imgpath = this.projectmock;
+            var imgpath2 = this.projectscreens;
+
             var splitpath = imgpath.split(".");
+            var splitpath2 = imgpath2.split(".");
             //save img extension
             var imgtype = splitpath[1];
+            var imgtype2 = splitpath2[1];
 
             //add img size
             if(this.smallimage){
                splitpath[1]="1x." + imgtype;
+               splitpath2[1]="1x." + imgtype2;
             }else{
                 splitpath[1]="2x." + imgtype;
+                splitpath2[1]="2x." + imgtype2;
             }
-            console.log("split: " +splitpath);
 
             //rewrite src
             var jointpath = splitpath.join().replace(',','');
+            var jointpath2 = splitpath2.join().replace(',','');
+
+            console.log("joined: " +jointpath);
+            console.log("joined: " +jointpath2);
+
             this.mockpath = "./src/assets/images/"+jointpath;
+            this.screenpath = "./src/assets/images/"+jointpath2;
+            
+            //image = "./src/assets/images/"+jointpath;
+            console.log(image);
         }
 
     }

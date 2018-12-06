@@ -14,22 +14,16 @@ Vue.use(VueRouter);
 
 const routes = [
   {path: '/project/:projectid', name: 'project', component: ProjectDetail, props: true},
-  {path: '/', component: Hero},
+  {path: '/', name: 'home', component: Hero},
   {path: '/portfolio', name: 'portfolio', component: Portfolio},
   {path: '/about', component: About},
   {path: '/resume', component: Resume},
   {path: '/contact', name: 'contact', component: Contact}
-  //each route is an object in an array with a defined path and component to be loaded
-  //{path: '/users', component: Users},
-  //{path: '/users/:userid', component: Users} //:userid is dynamic data from link
-  //{{ $this.route.params.userid }} will output :userid from url
-  //watch:{ '$route' (to, from){method with changing data} } in export default
 ];
 
 const router = new VueRouter({
-  //pass routes into vue router
   routes,
-  //mode: 'history' //removes hashtag from url
+  //mode: 'history' 
 })
 
 Vue.component('app-portfolio', Portfolio);
@@ -43,10 +37,6 @@ Vue.component('app-myresume', Resume);
 
 new Vue({
   el: '#app',
-  router, //add router to main vue instance
+  router, 
   render: h => h(App)
 });
-//<router-view></router-view> marks where components routed should display
-//<router-link></router-link> sets url for reloading components
-//<router-link to="/">Home</router-link>
-//<router-link :to="variable">dynamic url</router-link>

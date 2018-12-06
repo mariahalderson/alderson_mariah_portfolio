@@ -21,6 +21,12 @@
         </div>
 
 
+        <div id="statement" ref="statement" v-if="scrolled">
+          <p class="copy">I am a web developer and designer new to the industry. I can build wireframes, prototype, and code a fully responsive, always user-friendly website.</p>
+          <p class="copy">you can check out my work or learn more about me...</p>
+        </div>
+
+
         <nav id="mainnavigation" ref="mainnav">
           <h2 class="hide">Main Navigation</h2>
 
@@ -103,6 +109,7 @@ export default {
       this.$refs.logobox.style.width="200px";
       this.$refs.mainnav.classList.remove("beforehamburger");
       this.$refs.mainnav.classList.remove("hamburgernav");
+      this.$refs.statement.style.display="block";
     },
 
     navanimate(){
@@ -110,6 +117,8 @@ export default {
         console.log("the window has animated");
         setTimeout(()=>{
           this.$refs.mainnav.style.display="flex";
+          this.$refs.statement.style.opacity="1";
+          this.$refs.statement.style.transform="translateY(0px)";
         },800);
 
         setTimeout(()=>{
@@ -150,6 +159,7 @@ export default {
       this.$refs.logobox.style.width="90px";
       this.$refs.mainnav.style.height="0px";
       this.$refs.mainnav.classList.add("beforehamburger");
+      this.$refs.statement.style.display="none";
       this.nothome=true;
       this.menuclosed= true;
 
