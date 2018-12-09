@@ -56,11 +56,10 @@
                 fetch(targetURL) 
                 .then(res => res.json()) 
                 .then(data => {
-                    console.log(data);
                     this.projects = data;
                 })
                 .catch(function(error) {
-                console.log(error);
+                    console.log(error);
                 });
             }
             

@@ -3,8 +3,6 @@
 
       <div class="layer" ref="layer">
         
-        <!-- <div id="hamburgercontainer" v-on:click="hamburgeropen"  v-if="nothome"> -->
-        <!-- <div id="hamburgercontainer" ref="hamburgerContainer" v-on:click="hamburgeropen"> -->
         <div id="hamburgercontainer" v-bind:style="{ display: this.displaystatus }" v-on:click="hamburgeropen">
           <div id="hamburger" ref="hamburger">
             <p class="closemenu">X</p>
@@ -45,7 +43,7 @@
             <div class="arrow leftarrow"></div>about
           </router-link>
 
-          <a href="./src/assets/resume-MariahAlderson.pdf" target="_blank" class="navitem" id="resume" v-bind:style="{ display: this.displaystatus }" ref="resumeLink">resume</a>
+          <a href="/dist/resume-MariahAlderson.pdf" target="_blank" class="navitem" id="resume" v-bind:style="{ display: this.displaystatus }" ref="resumeLink">resume</a>
           
           <router-link to="/contact" class="navitem" id="nav-contact" v-on:click.native="pageleave">
             <div class="arrow leftarrow"></div>contact
@@ -67,16 +65,20 @@ export default {
       name: '',
       width: '50vw',
       scrolled: false,
-      //nothome: false,
       menuclosed: true,
       windowwidth: 0,
-      displaystatus: 'none'
+      displaystatus: 'none',
+      homeurl: 'http://mariahalderson.com/#/'
     }
   },
 
   created(){
     window.addEventListener('resize', this.handleResize)
     this.handleResize();
+  },
+
+  mounted(){
+    this.checkpage();
   },
 
   computed:{
@@ -92,14 +94,10 @@ export default {
     },
 
     windowscroll(){
-      console.log("clicked");
       //handle header animation when logo is clicked
       if(!this.scrolled){
-        //this.$refs.hamburgerContainer.style.display="none";
       this.displaystatus = 'none';
       this.$refs.statement.style.display="block";
-      //this.$refs.homeLink.style.display="none";
-      //this.$refs.resumeLink.style.display="none";
       this.$refs.titles.style.width="100vw";
       this.$refs.layer.style.width="100vw";
       this.$refs.logobox.style.maxWidth="none";
@@ -108,17 +106,15 @@ export default {
       this.$refs.titles.style.marginTop="50px";
       this.scrolled = true;
       this.navanimate();
+      }else{
+        console.log("you can get home through the navigation :)");
       }
     },
 
     homepage(){
       //set header back to fullscreen when navigating back to home page
       this.$refs.homeheader.classList.add("fullscreen");
-      //this.nothome=false;
-      //this.$refs.hamburgerContainer.style.display="none";
       this.displaystatus = 'none';
-      //this.$refs.homeLink.style.display="none";
-      //this.$refs.resumeLink.style.display="none";
       this.$refs.logobox.style.width="200px";
       this.$refs.mainnav.classList.remove("beforehamburger");
       this.$refs.mainnav.classList.remove("hamburgernav");
@@ -129,7 +125,6 @@ export default {
 
     navanimate(){
       if(this.scrolled){
-        console.log("the window has animated");
         setTimeout(()=>{
           this.$refs.mainnav.style.display="flex";
           this.$refs.statement.style.opacity="1";
@@ -143,7 +138,6 @@ export default {
     },
 
     hamburgeropen(){
-      console.log("hamburger");
       this.$refs.hamburger.classList.add("openmenu");
       this.$refs.mainnav.classList.add("hamburgernav");
 
@@ -169,29 +163,22 @@ export default {
     pageleave(){
       //handle header shape when navigating away from home page
       this.menuclosed= true;
-      //this.$refs.hamburgerContainer.style.display="block";
-      //this.$refs.homeLink.style.display="block";
-      //this.$refs.resumeLink.style.display="block";
       this.$refs.hamburger.classList.remove("openmenu");
-      //console.log("element" +this.$refs.hamburgerContainer.id);
-      console.log("page leave");
       this.$refs.homeheader.classList.remove("fullscreen");
       this.$refs.layer.style.width="100vw";
       this.$refs.logobox.style.width="90px";
       this.$refs.mainnav.style.height="0px";
       this.$refs.mainnav.classList.add("beforehamburger");
       this.$refs.statement.style.display="none";
-      //this.$refs.hamburgerContainer.style.display="block";
       this.displaystatus = 'block';
-      
-      // setTimeout(()=>{
-      //   if(this.menuclosed){
-      //     this.$refs.hamburger.classList.remove("openmenu");
-      //   }
-      //   },100);
-      // if(this.menuclosed){
-      //   this.$refs.hamburger.classList.remove("openmenu");
-      // }
+    },
+
+    checkpage(){
+      if(this.homeurl != window.location.href){
+        this.pageleave();
+      }else{
+        this.windowscroll();
+      }
     }
 
   }

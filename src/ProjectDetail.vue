@@ -22,7 +22,6 @@
 
 
             <div class="imgcontainer">
-                <!-- <img :src="'./src/assets/images/' + projectscreens" alt="mockup"> -->
                 <img :src="screenpath" alt="mockup">
             </div>
 
@@ -63,8 +62,6 @@ export default {
     },
 
     mounted(){
-        //this.imagesizer(this.mockpath);
-        //this.imagesizer(this.screenpath);
         this.imagesizer();
     },
 
@@ -123,14 +120,8 @@ export default {
             var jointpath = splitpath.join().replace(',','');
             var jointpath2 = splitpath2.join().replace(',','');
 
-            console.log("joined: " +jointpath);
-            console.log("joined: " +jointpath2);
-
             this.mockpath = "/dist/"+jointpath;
             this.screenpath = "/dist/"+jointpath2;
-            
-            //image = "./src/assets/images/"+jointpath;
-            console.log(image);
         }
 
     }

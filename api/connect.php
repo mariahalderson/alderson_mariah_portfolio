@@ -1,14 +1,10 @@
 <?php
-$host = "localhost";
-//$un = "root";
-$un="mariahal_root";
-$pw = "TinaFey1!";
-//$dbname = "db_portfolio";
-$dbname = "mariahal_portfolio";
 
+require_once('../../.htpasswds/config.php');
 
 $connect = mysqli_connect($host, $un, $pw, $dbname);
 mysqli_set_charset($connect, 'utf8');
+
 
 if(!$connect){
     echo "something broke!";
@@ -26,11 +22,11 @@ if(isset($_GET["projects"])) {
     $query = "SELECT * FROM tbl_proj";
     $result = mysqli_query($connect, $query);
     $rows = array();
-    
+ 
     while($row = mysqli_fetch_assoc($result)){
         $rows[] = $row;
     }
-}
+ }
 
 
 if(isset($_GET["skills"])) {
