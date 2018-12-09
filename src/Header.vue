@@ -73,6 +73,10 @@ export default {
   created(){
     window.addEventListener('resize', this.handleResize)
     this.handleResize();
+    // this.findurl();
+  },
+  mounted(){
+    this.findurl();
   },
 
   computed:{
@@ -166,6 +170,14 @@ export default {
       if(this.menuclosed){
         this.$refs.hamburger.classList.remove("openmenu");
       }
+    },
+
+    findurl(){
+      console.log(window.location.href);
+      if(window.location.href != "http://localhost:8080/#/"){
+        this.pageleave();
+      }
+
     }
 
   }

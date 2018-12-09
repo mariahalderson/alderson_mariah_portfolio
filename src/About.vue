@@ -16,7 +16,9 @@
 
 
         <div id="aboutintro">
-            <p class="copy">I am a front-end web developer based in London, Ontario. Sometimes I dabble in UX/UI Design as well, ensuring a smooth user experience from design to development.</p>
+            <p class="copy">I am a front-end web developer and UI Designer based in London, Ontario. My usual goal when I work is ensuring a smooth user experience from design to development. I have been growing my skills for the past year at Fanshawe College through a range of fun and challenging projects. Last summer I was lucky enough to start working with <a href="#">Reactr</a>, where I have had the pleasure of working on real-life and client projects. Through them, I have really been able to expand my experience and fill my incessant need to constantly be learning.</p>
+
+            <p class="copy">When I'm not busy coding or prototyping, I can be found spending about 85% of my time exploring new trails with my dog, Maxie. She's a German Shepherd, and she has the energy of 1000 athletes, but she's the best. I go to concerts when I can and I also make sure to devote time in the week to weight lifting and drinking my bodyweight in coffee.</p>
 
             <div class="imgcontainer" data-wow-delay="0.5s">
                 <img src="./assets/images/map-svg.png" alt="Map Icon of London, Ontario">
