@@ -9,6 +9,7 @@ import Resume from './Resume.vue';
 import Contact from './Contact.vue';
 import Header from './Header.vue';
 import Hero from './Hero.vue';
+import Footer from './Footer.vue';
 
 Vue.use(VueRouter);
 
@@ -23,6 +24,9 @@ const routes = [
 
 const router = new VueRouter({
   routes,
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
   //mode: 'history' 
 })
 
@@ -34,6 +38,7 @@ Vue.component('app-header', Header);
 Vue.component('app-hero', Hero);
 Vue.component('app-project-details', ProjectDetail);
 Vue.component('app-myresume', Resume);
+Vue.component('app-footer', Footer);
 
 new Vue({
   el: '#app',

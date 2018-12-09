@@ -3,7 +3,7 @@
 
       <div class="layer" ref="layer">
         
-        <div id="hamburgercontainer" v-on:click="hamburgeropen"  v-if="nothome">
+        <div id="hamburgercontainer" v-bind:style="{ display: this.displaystatus }" v-on:click="hamburgeropen">
           <div id="hamburger" ref="hamburger">
             <p class="closemenu">X</p>
           </div>
@@ -21,7 +21,7 @@
         </div>
 
 
-        <div id="statement" ref="statement" v-if="scrolled">
+        <div id="statement" ref="statement">
           <p class="copy">I am a web developer and designer new to the industry. I can build wireframes, prototype, and code a fully responsive, always user-friendly website.</p>
           <p class="copy">you can check out my work or learn more about me...</p>
         </div>
@@ -30,7 +30,7 @@
         <nav id="mainnavigation" ref="mainnav">
           <h2 class="hide">Main Navigation</h2>
 
-          <router-link to="/" class="navitem" id="home" v-if="nothome" v-on:click.native="homepage">
+          <router-link to="/" class="navitem" id="home" v-bind:style="{ display: this.displaystatus }" v-on:click.native="homepage">
             home
           </router-link>
 
@@ -42,7 +42,7 @@
             <div class="arrow leftarrow"></div>about
           </router-link>
 
-          <a href="./src/assets/resume-MariahAlderson.pdf" target="_blank" class="navitem" id="resume" v-if="nothome">resume</a>
+          <a href="./src/assets/resume-MariahAlderson.pdf" target="_blank" class="navitem" id="resume" v-bind:style="{ display: this.displaystatus }">resume</a>
           
           <router-link to="/contact" class="navitem" id="nav-contact" v-on:click.native="pageleave">
             <div class="arrow leftarrow"></div>contact
@@ -66,7 +66,9 @@ export default {
       scrolled: false,
       nothome: false,
       menuclosed: true,
-      windowwidth: 0
+      windowwidth: 0,
+      displaystatus: 'none',
+      homeurl: 'http://localhost:8080/#/'
     }
   },
 
@@ -75,22 +77,27 @@ export default {
     this.handleResize();
   },
 
+  mounted(){
+    this.checkpage();
+  },
+
   computed:{
     computedWidth(event){
     return this.width;
     }
   },
     
-  methods: {
+methods: {
 
     handleResize(){
       this.windowwidth = window.innerWidth;
     },
 
     windowscroll(){
-      console.log("clicked");
       //handle header animation when logo is clicked
       if(!this.scrolled){
+      this.displaystatus = 'none';
+      this.$refs.statement.style.display="block";
       this.$refs.titles.style.width="100vw";
       this.$refs.layer.style.width="100vw";
       this.$refs.logobox.style.maxWidth="none";
@@ -99,28 +106,30 @@ export default {
       this.$refs.titles.style.marginTop="50px";
       this.scrolled = true;
       this.navanimate();
+      }else{
+        console.log("you can get home through the navigation :)");
       }
     },
 
     homepage(){
       //set header back to fullscreen when navigating back to home page
       this.$refs.homeheader.classList.add("fullscreen");
-      this.nothome=false;
+      this.displaystatus = 'none';
       this.$refs.logobox.style.width="200px";
       this.$refs.mainnav.classList.remove("beforehamburger");
       this.$refs.mainnav.classList.remove("hamburgernav");
+      if(this.windowwidth > 900){
       this.$refs.statement.style.display="block";
+      }
     },
 
     navanimate(){
       if(this.scrolled){
-        console.log("the window has animated");
         setTimeout(()=>{
           this.$refs.mainnav.style.display="flex";
           this.$refs.statement.style.opacity="1";
           this.$refs.statement.style.transform="translateY(0px)";
         },800);
-
         setTimeout(()=>{
           this.$refs.mainnav.style.opacity="1";
         },900);     
@@ -128,19 +137,15 @@ export default {
     },
 
     hamburgeropen(){
-      console.log("hamburger");
       this.$refs.hamburger.classList.add("openmenu");
       this.$refs.mainnav.classList.add("hamburgernav");
-
       if(this.menuclosed){
         this.$refs.mainnav.classList.remove("beforehamburger");
-
       if(this.windowwidth < 900){
         this.$refs.mainnav.style.height="100vh";
       }else{
         this.$refs.mainnav.style.height="70px";
       }
-
       this.menuclosed = false;
       }else{
         this.$refs.mainnav.classList.add("beforehamburger");
@@ -148,28 +153,30 @@ export default {
         this.$refs.hamburger.classList.remove("openmenu");
         this.menuclosed = true;
       }
-
     },
 
     pageleave(){
       //handle header shape when navigating away from home page
-      console.log("page leave");
+      this.menuclosed= true;
+      this.$refs.hamburger.classList.remove("openmenu");
       this.$refs.homeheader.classList.remove("fullscreen");
       this.$refs.layer.style.width="100vw";
       this.$refs.logobox.style.width="90px";
       this.$refs.mainnav.style.height="0px";
       this.$refs.mainnav.classList.add("beforehamburger");
       this.$refs.statement.style.display="none";
-      this.nothome=true;
-      this.menuclosed= true;
+      this.displaystatus = 'block';
+    },
 
-      if(this.menuclosed){
-        this.$refs.hamburger.classList.remove("openmenu");
+    checkpage(){
+      if(this.homeurl != window.location.href){
+        this.pageleave();
+      }else{
+        this.homepage();
       }
     }
 
   }
-
 };
 </script>
 

@@ -79,6 +79,9 @@
             </div>
         </div>
 
+
+        <app-footer ref="pagefooter"></app-footer>
+
     </section>
 </template>
 

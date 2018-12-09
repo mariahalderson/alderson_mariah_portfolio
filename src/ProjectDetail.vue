@@ -43,6 +43,8 @@
 
         </div>
 
+        <app-footer ref="pagefooter"></app-footer>
+
     </section>
 
 </template>
@@ -63,8 +65,6 @@ export default {
     },
 
     mounted(){
-        //this.imagesizer(this.mockpath);
-        //this.imagesizer(this.screenpath);
         this.imagesizer();
     },
 
@@ -129,7 +129,6 @@ export default {
             this.mockpath = "./src/assets/images/"+jointpath;
             this.screenpath = "./src/assets/images/"+jointpath2;
             
-            //image = "./src/assets/images/"+jointpath;
             console.log(image);
         }
 
