@@ -118,8 +118,11 @@ methods: {
       this.$refs.logobox.style.width="200px";
       this.$refs.mainnav.classList.remove("beforehamburger");
       this.$refs.mainnav.classList.remove("hamburgernav");
+
       if(this.windowwidth > 900){
       this.$refs.statement.style.display="block";
+      }else{
+        this.$refs.statement.style.display="none";
       }
     },
 
@@ -172,7 +175,7 @@ methods: {
       if(this.homeurl != window.location.href){
         this.pageleave();
       }else{
-        this.homepage();
+        console.log("on home page!");
       }
     }
 

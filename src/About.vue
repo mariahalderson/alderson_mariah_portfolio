@@ -9,7 +9,7 @@
             
             <div id="abouttitles">
                 <p class="title">mariah alderson</p>
-                <p class="subtitle">lorem ipsum dolor sit amet</p>
+                <p class="subtitle">get to know me a little better</p>
             </div>
         </div>
 
