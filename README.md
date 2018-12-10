@@ -1,4 +1,4 @@
-# alderson_mariah_portfolio
+# Mariah Alderson - Web Portfolio
 
 > A Vue.js project to build my portfolio website showcasing my design and development skills.
 
