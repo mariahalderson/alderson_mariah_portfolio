@@ -88,7 +88,7 @@
     }
 
     #projectcontainer{
-    width: 70vw;
+    width: 90vw;
     margin: 100px auto 0px auto;
     z-index: 9;
     display: flex;
@@ -100,14 +100,16 @@
     }
 
         .imgcontainer{
-            max-width: 80%;
+            max-width: 100%;
             margin: 0 auto;
 
             img{
-                max-width: 100%;
+                //max-width: 100%;
+                width: 320px;
 
                 @media screen and (min-width: 900px){
-                    max-width: 550px;
+                    width: auto;
+                    max-width: 600px;
                 }
             }
         }
@@ -119,6 +121,7 @@
 
         .copy{
             font-size: 16px;
+            width: 100%;
             text-align: center;
             font-family: $copyfont;
             color: $text;

@@ -28,6 +28,8 @@
             </div>
 
         </div>
+
+        <app-footer></app-footer>
         
     </section>
 </template>
@@ -73,7 +75,7 @@
                     this.$refs.messagecontainer.innerHTML = "oops! something went wrong";
                     this.$refs.messagebckgd.classList.add("error");
                 }else{
-                    console.log("??? i dont know");
+                    console.log("contact me");
                 }
 
              },

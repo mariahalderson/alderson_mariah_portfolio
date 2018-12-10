@@ -21,6 +21,8 @@
 
         </div>
 
+        <app-footer></app-footer>
+
     </section>
 </template>
 

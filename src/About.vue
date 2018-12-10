@@ -1,10 +1,10 @@
 <template>
-    <section id="about">
+    <section id="about-section">
         <h2 class="hide">About Mariah</h2>
 
         <div id="aboutheader">
             <div id="aboutimg">
-                <img src="/dist/about-portrait.png" alt="Mariah Alderson and her dog">
+                <img src="/dist/about-portrait.svg" alt="Mariah Alderson and her dog">
             </div>
             
             <div id="abouttitles">
@@ -81,6 +81,8 @@
                 <p class="buttoncopy">contact me</p>
             </div>
         </div>
+
+        <app-footer></app-footer>
 
     </section>
 </template>

@@ -95,19 +95,23 @@ export default {
 
     windowscroll(){
       //handle header animation when logo is clicked
-      if(!this.scrolled){
-      this.displaystatus = 'none';
-      this.$refs.statement.style.display="block";
-      this.$refs.titles.style.width="100vw";
-      this.$refs.layer.style.width="100vw";
-      this.$refs.logobox.style.maxWidth="none";
-      this.$refs.logobox.style.width="100vw";
-      this.$refs.img.style.animation="none";
-      this.$refs.titles.style.marginTop="50px";
-      this.scrolled = true;
-      this.navanimate();
+      if(this.homeurl != window.location.href){
+        console.log("nothing");
       }else{
-        console.log("you can get home through the navigation :)");
+        if(!this.scrolled){
+          this.displaystatus = 'none';
+          this.$refs.statement.style.display="block";
+          this.$refs.titles.style.width="100vw";
+          this.$refs.layer.style.width="100vw";
+          this.$refs.logobox.style.maxWidth="none";
+          this.$refs.logobox.style.width="100vw";
+          this.$refs.img.style.animation="none";
+          this.$refs.titles.style.marginTop="50px";
+          this.scrolled = true;
+          this.navanimate();
+        }else{
+          console.log("you can get home through the navigation :)");
+        }
       }
     },
 
@@ -120,6 +124,8 @@ export default {
       this.$refs.mainnav.classList.remove("hamburgernav");
       if(this.windowwidth > 900){
       this.$refs.statement.style.display="block";
+      }else{
+        this.$refs.statement.style.display="none";
       }
     },
 
@@ -176,8 +182,9 @@ export default {
     checkpage(){
       if(this.homeurl != window.location.href){
         this.pageleave();
+        this.$refs.img.removeEventListener('click');
       }else{
-        this.windowscroll();
+        console.log("welcoem to the home page!");
       }
     }
 
