@@ -1,12 +1,14 @@
 @font-face {
     font-family: Raleway-Black;
-    src: url('/src/assets/styles/fonts/Raleway-Black.ttf');
+    // src: url('/src/assets/styles/fonts/Raleway-Black.ttf');
+    src: url('/dist/fonts/Raleway-Black.ttf');
     font-weight: bold;
 }
 
 @font-face {
     font-family: Raleway-Thin;
-    src: url('/src/assets/styles/fonts/Raleway-Regular.ttf');
+    // src: url('/src/assets/styles/fonts/Raleway-Regular.ttf');
+    src: url('/dist/fonts/Raleway-Regular.ttf');
     font-weight: thin;
 }
 

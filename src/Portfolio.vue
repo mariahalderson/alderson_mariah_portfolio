@@ -7,7 +7,7 @@
         <div id="grid-container">
 
             <div class="project-tile view-tenth" v-for="project in projects">
-                <img :src="'./src/assets/images/'+project.proj_thumb" :alt="project.proj_thumb">
+                <img :src="'/dist/'+project.proj_thumb" :alt="project.proj_thumb">
 
                 <div class="hover-info mask">
                     <p class="title">{{project.proj_name}}</p>
@@ -20,6 +20,8 @@
             </div>
 
         </div>
+
+        <app-footer></app-footer>
 
     </section>
 </template>
@@ -51,16 +53,15 @@
         methods: {
 
             getProjects(){
-                let targetURL = "http://localhost/alderson_mariah_portfolio/api/connect.php?projects=all";
-
+                //let targetURL = "http://localhost/alderson_mariah_portfolio/api/connect.php?projects=all";
+                let targetURL = "/api/connect.php?projects=all";
                 fetch(targetURL) 
                 .then(res => res.json()) 
                 .then(data => {
-                    console.log(data);
                     this.projects = data;
                 })
                 .catch(function(error) {
-                console.log(error);
+                    console.log(error);
                 });
             }
             

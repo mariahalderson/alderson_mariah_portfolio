@@ -1,5 +1,5 @@
 
-#about{
+#about-section{
     padding: 0px 20px 50px 20px;
 
     #aboutheader{
@@ -20,9 +20,7 @@
             margin: auto;
 
             img{
-                max-width: 300px;
-                margin-left:-30px;
-                margin-top: -30px;
+                max-width: 100%;
             }
         }
 
@@ -42,7 +40,7 @@
         margin-bottom: 75px;
         padding: 40px;
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         text-align: center;
         align-items: center;
         justify-content: space-between;

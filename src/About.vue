@@ -1,26 +1,30 @@
 <template>
-    <section id="about">
+    <section id="about-section">
         <h2 class="hide">About Mariah</h2>
 
         <div id="aboutheader">
             <div id="aboutimg">
-                <img src="./assets/images/about-portrait.jpg" alt="Mariah Alderson">
+                <img src="/dist/about-portrait.svg" alt="Mariah Alderson and her dog">
             </div>
             
             <div id="abouttitles">
                 <p class="title">mariah alderson</p>
-                <p class="subtitle">lorem ipsum dolor sit amet</p>
+                <p class="subtitle">get to know me a little better</p>
             </div>
         </div>
 
 
 
         <div id="aboutintro">
-            <p class="copy">I am a front-end web developer based in London, Ontario. Sometimes I dabble in UX/UI Design as well, ensuring a smooth user experience from design to development.</p>
 
             <div class="imgcontainer" data-wow-delay="0.5s">
                 <img src="./assets/images/map-svg.png" alt="Map Icon of London, Ontario">
             </div>
+
+            <p class="copy">I am a front-end web developer and UI Designer based in London, Ontario. My usual goal when I work is ensuring a smooth user experience from design to development. I have been growing my skills for the past year at Fanshawe College through a range of fun and challenging projects. Last summer I was lucky enough to start working with <a href="http://www.reactr.ca" target="_blank">Reactr</a>, where I have had the pleasure of working on real-life and client projects. Through them, I have really been able to expand my experience and fill my incessant need to constantly be learning.</p>
+
+            <p class="copy">When I'm not busy coding or prototyping, I can be found spending about 85% of my time exploring new trails with my dog, Maxie. She's a German Shepherd, and she has the energy of 1000 athletes, but she's the best. I love to go to concerts when I can, and try to spend my mornings weight lifting and my days drinking my bodyweight in coffee.</p>
+
         </div>
 
 
@@ -33,7 +37,7 @@
                 <!--lightbox-->
                 <div id="skilldesc" ref="skillsbox">
                     <div class="button" v-on:click="closebox"><p class="buttoncopy">X</p></div>
-                    <img :src="'./src/assets/images/' + boxskill.skills_icon" alt="" ref="activeicon">
+                    <img :src="'/dist/' + boxskill.skills_icon" alt="" ref="activeicon">
                     <div id="skillcopy" ref="activecopy">
                         <p class="title">{{boxskill.skills_name}}</p>
                         <p class="copy">{{boxskill.skills_desc}}</p>
@@ -41,7 +45,7 @@
 
                     <div id="othericons" ref="iconlist">
                         <div class="boxicon" v-for="iconpath in iconpaths" :id="iconpath.id" v-on:click="openbox">
-                            <img :src="'./src/assets/images/' + iconpath.path" alt="">
+                            <img :src="'/dist/' + iconpath.path" alt="">
                         </div>
                     </div>
 
@@ -49,7 +53,7 @@
 
                 <!--skills loop-->
                 <div class="icon" v-for="skill in skills" :id="skill.skills_id" v-on:click="openbox">
-                    <img :src="'./src/assets/images/' + skill.skills_icon" alt="">
+                    <img :src="'/dist/' + skill.skills_icon" alt="">
                     <p class="copy">{{skill.skills_name}}</p>
                 </div>
             </div>
@@ -62,7 +66,6 @@
 
             <p class="copy">I love creating websites that are fully responsive and user friendly to suit the needs of any business or individual. This site was built by myself from scratch, using a variety of skills that I have been growing since I started learning at Fanshawe College. I took this development opportunity to teach myself Vue.js, and have had a lot of fun along the way.</p>
 
-            <p class="copy">In my spare time, my unrelated hobbies include long hikes with my dog, concert-going, weight lifting, and super amateur photography. </p>
         </div>
 
 
@@ -78,6 +81,8 @@
                 <p class="buttoncopy">contact me</p>
             </div>
         </div>
+
+        <app-footer></app-footer>
 
     </section>
 </template>
@@ -105,7 +110,7 @@ export default {
      methods:{
 
          getData(){
-             let targeturl = "http://localhost/alderson_mariah_portfolio/api/connect.php?skills=all";
+             let targeturl = "/api/connect.php?skills=all";
 
              fetch(targeturl) 
             .then(res => res.json()) 
